@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   align-items: start;
   padding: 100px;
   height: 100%;
-  background-color: hsl(28, 5%, 22%);
+  background-color: white;
   gap: 48px;
 `;
 
@@ -41,20 +41,21 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-text: center;
-  width: 500px;
+  width: 400px;
 `;
 
 const Title = styled.h2`
-  font-size: 2.5rem;
-  color: white;
+  font-size: 1.5rem;
+  color: black;
   font-weight: 100;
   margin-bottom: 16px;
+  text-transform: uppercase;
 `;
 
 const Text = styled.p`
-  font-size: 1.25rem;
-  color: white;
+  font-size: 1rem;
+  color: black;
   font-weight: 200;
-  line-height: 1.85;
+  line-height: 2.5;
 
 `;

@@ -21,7 +21,7 @@ export default function Header(){
         src='/coffee-variety.png' 
         alt='' 
         width={2000}
-        height={200}
+        height={300}
       />
     </Wrapper>
   )
@@ -31,8 +31,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  height: 300px;
-  background-color: hsl(28, 40%, 76%);
+  height: 275px;
   padding: 24px 48px;
   align-items: start;
 `;
@@ -41,6 +40,7 @@ const Title = styled.h1`
   color: black;
   font-size: 2.5rem;
   align-items: center;
+  z-index: 2;
 
   //creates opticxal symmetry
   margin-left: -16px;
@@ -49,6 +49,7 @@ const Title = styled.h1`
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
+  z-index: 2;
 
   //creates baseline effect
   margin-top: 22px;
@@ -60,6 +61,7 @@ const NavLink = styled(Link)`
   color: black;
   text-transform: uppercase;
   font-size: 1.25rem;
+  font-weight: 700;
 
   &:hover {
     text-decoration: revert;
@@ -72,6 +74,8 @@ const DecorationSpan = styled(Image)`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 275px;
   object-fit: cover;
+  filter: opacity(40%);
+  
 `;
