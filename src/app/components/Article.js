@@ -20,7 +20,7 @@ export default function Article(){
         alt='coffee brew'
         width={400}
         height={450}
-        style={{objectFit:'cover'}}
+        style={{objectFit:'cover', borderRadius: '2px'}}
       />
     </Wrapper>
     
@@ -45,7 +45,7 @@ const TextWrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   color: black;
   font-weight: 100;
   margin-bottom: 16px;

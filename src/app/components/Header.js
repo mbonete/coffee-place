@@ -2,6 +2,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ShoppingCart } from 'react-feather';
+
 
 
 export default function Header(){
@@ -15,33 +17,24 @@ export default function Header(){
         <NavLink href='/about-us'>About us</NavLink>
         <NavLink href='/contact'>Contact</NavLink>
         <NavLink href='/products'>Products</NavLink>
-        <NavLink href='/shopping-cart'>Shopping Cart</NavLink>
+        <NavLink href='/shopping-cart'><ShoppingCart/></NavLink>
       </Nav>
-      <DecorationSpan 
-        src='/coffee-variety.png' 
-        alt='' 
-        width={2000}
-        height={300}
-      />
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  position: relative;
   display: flex;
   justify-content: space-between;
-  height: 275px;
+  height: 150px;
   padding: 24px 48px;
   align-items: start;
-  background: linear-gradient(to bottom, rgb(255 255 255) 25%,rgb(64 40 0 / 65%) 100%);
 `;
 const Title = styled.h1`
   display: flex;
   color: black;
   font-size: 2.5rem;
   align-items: center;
-  z-index: 2;
 
   //creates opticxal symmetry
   margin-left: -16px;
@@ -49,8 +42,7 @@ const Title = styled.h1`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
-  z-index: 2;
+  gap: 64px;
 
   //creates baseline effect
   margin-top: 22px;
@@ -65,17 +57,7 @@ const NavLink = styled(Link)`
   font-weight: 700;
 
   &:hover {
-    text-decoration: revert;
-    color: hsl(28, 75%, 13%);
+    border-bottom: 3px solid hsl(39, 100%, 38%);
   }
 `;
 
-const DecorationSpan = styled(Image)`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 275px;
-  object-fit: cover;
-  filter: opacity(40%);  
-`;
