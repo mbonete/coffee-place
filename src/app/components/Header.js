@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   height: 275px;
   padding: 24px 48px;
   align-items: start;
+  background: linear-gradient(to bottom, rgb(255 255 255) 25%,rgb(64 40 0 / 65%) 100%);
 `;
 const Title = styled.h1`
   display: flex;
@@ -76,6 +77,5 @@ const DecorationSpan = styled(Image)`
   width: 100%;
   height: 275px;
   object-fit: cover;
-  filter: opacity(40%);
-  
+  filter: opacity(40%);  
 `;
