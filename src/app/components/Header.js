@@ -9,12 +9,15 @@ import { ShoppingCart } from 'react-feather';
 export default function Header(){
   return (
     <Wrapper>
-      <Title>
-        <Image src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
-        The Coffee Place
-      </Title>
+      <LogoLink href='/'>
+        <Title>
+          <Image src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
+          The Coffee Place
+        </Title>
+      </LogoLink>
+     
       <Nav>
-        <NavLink href='/about-us'>About us</NavLink>
+        <NavLink href='/about'>About us</NavLink>
         <NavLink href='/contact'>Contact</NavLink>
         <NavLink href='/products'>Products</NavLink>
         <NavLink href='/shopping-cart'><ShoppingCart/></NavLink>
@@ -30,6 +33,10 @@ const Wrapper = styled.div`
   padding: 24px 48px;
   align-items: start;
 `;
+const LogoLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const Title = styled.h1`
   display: flex;
   color: black;
