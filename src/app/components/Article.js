@@ -9,7 +9,7 @@ export default function Article({articleProps}){
       <TextWrapper>
         <Title>{title}</Title>
         <Text>
-          {text}
+          { typeof text === 'string' ? text : text.map((c, i) => <li key={c+i}>{c}</li>) }
         </Text>
       </TextWrapper>
       <Image 
