@@ -5,39 +5,57 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { PageWrapper } from "../components/PageWrapper";
 import { ShoppingCart } from 'react-feather';
+import { useCart } from '../hooks/useCart';
 
 const products = [
   {
     src: '/coffee-bag.png',
     alt: 'coffee bag',
-  },
-  {
-    src: '/brew-coffee.jpg',
-    alt: 'brewed coffee',
+    name: 'Filter Coffee',
+    description: 'Ground coffee suited for use in drip coffee makers, delivering a convenient and consistent brewing experience.',
+    price: '3.99$'
   },
   {
     src: '/coffee1.jpg',
-    alt: '',
+    alt: 'Espresso',
+    name: 'Espresso',
+    description: 'Concentrated and bold espresso shot with a rich and intense flavor.',
+    price: '1.25$'
   },
   {
     src: '/coffee2.jpg',
-    alt: '',
+    alt: 'Iced Latte',
+    name: 'Iced Latte',
+    description: 'Refreshing and creamy chilled coffee beverage made by combining espresso with cold milk and ice.',
+    price: '2.85$'
   },
   {
-    src: '/brew-coffee.jpg',
-    alt: 'brewed coffee',
+    src: '/americano-coffee.jpg',
+    alt: 'americano coffee',
+    name: 'Americano',
+    description: 'A Caffè Americano is a coffee made by diluting espresso with hot water, resulting in a milder yet flavorful coffee beverage.',
+    price: '2.25$'
   },
   {
     src: '/coffee3.jpg',
-    alt: '',
+    alt: 'capuccino',
+    name: 'Capuccino',
+    description: 'Espresso, steamed milk, and milk foam, creating a creamy and flavorful drink.',
+    price: '2.5$'
   },
   {
-    src: '/coffee1.jpg',
-    alt: '',
+    src: '/coffee4.png',
+    alt: 'caramel macchiato',
+    name: 'Caramel Macchiato',
+    description: 'Espresso, vanilla syrup, steamed milk, and caramel sauce.',
+    price: '3.95$'
   },
 ];
 
 export default function Products() {
+
+  const { addToShoppingCart } = useCart();
+
   return (
     <PageWrapper> 
       <Header />
@@ -54,16 +72,14 @@ export default function Products() {
               />
               <Tag>
                 <CoffeInfo>
-                  <Name>Capuccino</Name>
-                  <Description>Espresso, steamed milk, and milk foam, creating a creamy and flavorful drink.</Description>
+                  <Name>{product.name}</Name>
+                  <Description>{product.description}</Description>
                 </CoffeInfo>
                 <PriceInfo>
-                  <Price>2.99$</Price>
-                  <ShoppingCart size={30} color='orange'/>
+                  <Price>{product.price}</Price>
+                  <ShoppingCart size={30} color='orange' onClick={() => addToShoppingCart(product)} />
                 </PriceInfo>
-                
               </Tag>
-              
             </GalleryElement>
           ))
         }      
@@ -79,6 +95,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 550px;
+  padding-bottom: 100px;
 `;
 
 const Title = styled.h3`
@@ -86,8 +103,8 @@ const Title = styled.h3`
   color: black;
   font-weight: 100;
   text-transform: uppercase;
-  margin-bottom: 48px;
-  margin-left: 48px;
+  margin: 0 auto;
+  padding-bottom: 48px;
 `;
 const GalleryElement = styled.div`
   width: 100%;
@@ -102,11 +119,6 @@ const GalleryImage = styled(Image)`
   object-fit: cover;
   width: 100%;
   height: 80%;
-  filter: grayscale(50%);
-
-  &:hover {
-    filter: revert;
-  }
 `;
 
 const Tag = styled.div`
@@ -119,7 +131,7 @@ const Tag = styled.div`
 const CoffeInfo = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 70%;
+  max-width: 80%;
   justify-content: space-between;
 
 `;
