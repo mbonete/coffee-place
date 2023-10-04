@@ -1,6 +1,7 @@
 import { Quicksand } from 'next/font/google'
 import StyledComponentsRegistry from './lib/registry';
 import './globals.css'
+import { CartProvider } from './hooks/useCart';
  
 // If loading a variable font, you don't need to specify the font weight
 const quicksand = Quicksand({  
@@ -16,12 +17,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-
-      <body className={quicksand.className}>
-        <StyledComponentsRegistry>
-          {children}
-        </StyledComponentsRegistry>
-      </body>
+      <CartProvider>
+        <body className={quicksand.className}>
+          <StyledComponentsRegistry>
+            {children}
+          </StyledComponentsRegistry>
+        </body>
+      </CartProvider>
     </html>
   )
 }
