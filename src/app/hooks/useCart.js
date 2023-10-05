@@ -3,28 +3,41 @@ import React from 'react';
 
 const CartContext = React.createContext({});
 
-export const CartProvider = ({children}) => {
+export const CartProvider = ({ children }) => {
 
-  const [ products, setProducts ] = React.useState([]);
+  const [ cartLines, setCartLines ] = React.useState({});
 
-  const addToShoppingCart = (product) => {
-    setProducts([...products, product]);
-  }
+  const addToShoppingCart = (productId) => {
+    setCartLines({
+      ...cartLines,
+      [productId]: 1
+    });
+  };
 
-  const removeFromShoppingCart = (product) => {
-    const index = products.findIndex((p) => p.name === product.name);
-    setProducts(products.toSpliced(index, 1));
-  }
+  const changeQuantity = (productId, quantity) => {
+    setCartLines({
+      ...cartLines,
+      [productId]: quantity,
+    });
+  };
+
+  const removeFromShoppingCart = (productId) => {
+    const updatedCartLines = { ...cartLines };
+    delete updatedCartLines[productId];
+    
+    setCartLines(updatedCartLines);
+  };
 
   const value = {
     addToShoppingCart,
     removeFromShoppingCart,
-    products,
-  }
+    changeQuantity,
+    cartLines, 
+  };
 
   return (
     <CartContext.Provider value={value}>{children}</CartContext.Provider>
   )
-}
+};
 
 export const useCart = () => React.useContext(CartContext);
