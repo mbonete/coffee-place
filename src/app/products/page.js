@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { PageWrapper } from "../components/PageWrapper";
-import { ShoppingCart } from 'react-feather';
-import { useCart } from '../hooks/useCart';
+import ShoppingCartIconButton from '../components/ShoppingCartIconButton';
 
 const products = [
   {
@@ -53,9 +52,7 @@ const products = [
 ];
 
 export default function Products() {
-
-  const { addToShoppingCart } = useCart();
-
+  
   return (
     <PageWrapper> 
       <Header />
@@ -77,7 +74,7 @@ export default function Products() {
                 </CoffeInfo>
                 <PriceInfo>
                   <Price>{product.price}</Price>
-                  <ShoppingCart size={30} color='orange' onClick={() => addToShoppingCart(product)} />
+                  <ShoppingCartIconButton product={product}/>
                 </PriceInfo>
               </Tag>
             </GalleryElement>
@@ -133,13 +130,24 @@ const CoffeInfo = styled.div`
   flex-direction: column;
   max-width: 80%;
   justify-content: space-between;
+  padding-right: 8px;
 
 `;
 const PriceInfo = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 50px 40px;
   align-items: end;
   gap: 16px;
-`;
+
+  @media (max-width: 850px) {
+    grid-template-columns: revert;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    justify-items: end;
+    align-items: self-start;
+  }
+
+  `;
 const Name = styled.span`
   font-weight: 600;
 `;
@@ -150,4 +158,9 @@ const Price = styled.span`
 `;
 const Description = styled.p`
   color: gray;
+  //ellipsis
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 `;

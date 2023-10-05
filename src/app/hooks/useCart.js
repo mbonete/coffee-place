@@ -11,9 +11,9 @@ export const CartProvider = ({children}) => {
     setProducts([...products, product]);
   }
 
-  const removeFromShoppingCart = (e) => {
-    e.preventDefault();
-    
+  const removeFromShoppingCart = (product) => {
+    const index = products.findIndex((p) => p.name === product.name);
+    setProducts(products.toSpliced(index, 1));
   }
 
   const value = {
