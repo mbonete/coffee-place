@@ -5,21 +5,22 @@ import { ShoppingCart, CheckCircle } from 'react-feather';
 import { useCart } from '../hooks/useCart';
 
 export default function ShoppingCartIconButton({ product }) {
-  const { addToShoppingCart, products, removeFromShoppingCart } = useCart();
+  const { productId } = product;
+  const { addToShoppingCart, cartLines, removeFromShoppingCart } = useCart();
   const [ isAdded, setIsAdded ] = React.useState(false);
 
   React.useEffect(() => {
-    setIsAdded(products.some(({ name }) => name === product.name));
-  }, [products, product.name])
-
+    const hasPositiveQuantity = Boolean(cartLines[productId] > 0);
+    setIsAdded(hasPositiveQuantity);
+  }, [cartLines, productId])
 
   return (
     <>
       {
         isAdded ? (
-          <CheckCircle size={30} color='green'  onClick={() => removeFromShoppingCart(product)} />
+          <CheckCircle size={30} color='green'  onClick={() => removeFromShoppingCart(productId)} />
         ) : (
-          <ShoppingCart size={30} color='orange' onClick={() => addToShoppingCart(product)} />
+          <ShoppingCart size={30} color='orange' onClick={() => addToShoppingCart(productId)} />
         )
       }
     </>
