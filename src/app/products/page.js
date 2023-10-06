@@ -28,7 +28,7 @@ export default function Products() {
                   <Description>{product.description}</Description>
                 </CoffeInfo>
                 <PriceInfo>
-                  <Price>{product.price}</Price>
+                  <Price>${product.price}</Price>
                   <ShoppingCartIconButton product={product}/>
                 </PriceInfo>
               </Tag>

@@ -6,12 +6,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { PageWrapper } from '../components/PageWrapper';
 import { useCart } from "../hooks/useCart";
-import { Trash } from 'react-feather';
+import Checkout from '../components/Checkout';
 
 export default function ShoppingCartPage() {
   const { cartLines, changeQuantity } = useCart();
-
-  console.log('debug', 'cartLines', cartLines);
 
   const cartProductIds = Object.keys(cartLines);
 
@@ -41,7 +39,7 @@ export default function ShoppingCartPage() {
                             <Bold>Total</Bold>
                           </TagRow>
                           <TagRow>
-                            <Price>{product.price}</Price>
+                            <Price>${product.price}</Price>
                             <select 
                               style={{width: '60px'}} 
                               value={quantity} 
@@ -55,7 +53,7 @@ export default function ShoppingCartPage() {
                               <option value={4}>4</option>
                               <option value={5}>5</option>
                             </select>
-                            <Bold>{product.price}</Bold>
+                            <Bold>${product.price}</Bold>
                           </TagRow>
                         </Tag>
                       </GalleryElement>
@@ -64,22 +62,7 @@ export default function ShoppingCartPage() {
                 : <Bold>You did not add any products yet</Bold>
               }
             </ListWrapper>
-            <CheckoutWrapper>
-              <Checkout>
-                <Bold>Subtotal</Bold>
-                <Price style={{display:'grid', justifyItems: 'end'}}>12.5$</Price>
-                <Bold>Shipping cost</Bold>
-                <Price style={{display:'grid', justifyItems: 'end'}}>2$</Price>
-                <Bold>Tax</Bold>
-                <Price style={{display:'grid', justifyItems: 'end'}}>0.10$</Price>
-                
-              </Checkout>
-              <Total>
-                <Bold>Total</Bold>
-                <Bold style={{display:'grid', justifyItems: 'end'}}>15$</Bold>
-              </Total>
-              <CheckoutButton>Checkout</CheckoutButton>
-            </CheckoutWrapper>
+            <Checkout />
             
           </Grid>
         
@@ -158,43 +141,4 @@ const Bold = styled.span`
 const Price = styled.span`
   font-weight: 400;
   font-size: 1rem;
-`;
-const CheckoutWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 48px;
-  max-height: 60%;
-  min-height: 400px;
-  gap: 48px;
-  border: 1px solid orange;
-  padding: 16px 24px;
-  
-  @media (max-width: 850px){
-    margin: 8px;
-  }
-
-`;
-const Checkout = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 24px;
-  
-`;
-const Total = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  border-top: 1px solid gray;
-  padding-top: 48px;
-
-
-`;
-
-const CheckoutButton = styled.button`
-  border-radius: 4px;
-  background-color: orange;
-  color: black;
-  padding: 8px 16px;
 `;
