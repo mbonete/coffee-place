@@ -7,6 +7,7 @@ import { useCart, SERVICE_COST, TAX_COST } from "../hooks/useCart";
 
 export default function Checkout(){
   const { total, subtotal } = useCart();
+  console.log('debug', total, typeof total, total === 2.99)
   
   return(
 
@@ -22,7 +23,7 @@ export default function Checkout(){
         </CheckoutBox>
         <Total>
           <Bold>Total</Bold>
-          <Bold style={{display:'grid', justifyItems: 'end'}}>${total}</Bold>
+          <Bold style={{display:'grid', justifyItems: 'end'}}>${total == 2.99 ? 0 : total}</Bold>
         </Total>
         <CheckoutButton>Checkout</CheckoutButton>
       </CheckoutWrapper>
