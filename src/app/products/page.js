@@ -92,6 +92,7 @@ const PriceInfo = styled.div`
   display: grid;
   grid-template-columns: 50px 40px;
   align-items: end;
+  justify-items: end;
   gap: 16px;
 
   @media (max-width: 850px) {
