@@ -43,6 +43,11 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 550px;
   padding-bottom: 100px;
+
+  @media(max-width: 850px){
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 300px;
+  }
 `;
 
 const Title = styled.h3`
@@ -66,6 +71,9 @@ const GalleryImage = styled(Image)`
   object-fit: cover;
   width: 100%;
   height: 80%;
+  @media(max-width: 850px){
+    height: 60%;
+  }
 `;
 
 const Tag = styled.div`
@@ -74,6 +82,10 @@ const Tag = styled.div`
   justify-content: space-between;
   padding: 16px;
   border: 1px solid lightgray;
+
+  @media(max-width: 850px){
+    height: 40%;
+  }
 `;
 const CoffeInfo = styled.div`
   display: flex;
