@@ -6,6 +6,7 @@ const CartContext = React.createContext({});
 
 export const SERVICE_COST = '2';
 export const TAX_COST = '0.99';
+export const TOTAL_FEES = parseFloat(Number(SERVICE_COST) + Number(TAX_COST)).toFixed(2);
 
 export const CartProvider = ({ children }) => {
   const [ cartLines, setCartLines ] = React.useState({});
@@ -29,6 +30,10 @@ export const CartProvider = ({ children }) => {
     setCartLines(cartLines);
     updatePricesSummary(cartLines);
   };
+
+  const reset = () => {
+    updateCartLines({});
+  }
 
   const addToShoppingCart = (productId) => {
     updateCartLines({
@@ -55,6 +60,7 @@ export const CartProvider = ({ children }) => {
     addToShoppingCart,
     removeFromShoppingCart,
     changeQuantity,
+    reset,
     cartLines,
     total,
     subtotal

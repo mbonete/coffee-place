@@ -7,12 +7,8 @@ import { useCart } from '../hooks/useCart';
 export default function ShoppingCartIconButton({ product }) {
   const { productId } = product;
   const { addToShoppingCart, cartLines, removeFromShoppingCart } = useCart();
-  const [ isAdded, setIsAdded ] = React.useState(false);
 
-  React.useEffect(() => {
-    const hasPositiveQuantity = Boolean(cartLines[productId] > 0);
-    setIsAdded(hasPositiveQuantity);
-  }, [cartLines, productId])
+  const isAdded = cartLines[productId] > 0
 
   const handleToggle = () => {
     isAdded ? removeFromShoppingCart(productId) : addToShoppingCart(productId)
@@ -32,8 +28,8 @@ export default function ShoppingCartIconButton({ product }) {
 }
 
 const Button = styled.button`
-  background-color: transparent;
-  border: none;
+  background-color: white;
+  border: white;
   cursor: pointer;
   padding: 0;
   margin: 0;
