@@ -10,10 +10,8 @@ export default function Header(){
   return (
     <Wrapper>
       <LogoLink href='/'>
-        <Title>
-          <Image src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
-          The Coffee Place
-        </Title>
+        <Image src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
+        <Title>The Coffee Place</Title>
       </LogoLink>
      
       <Nav>
@@ -34,16 +32,25 @@ const Wrapper = styled.div`
 `;
 const LogoLink = styled(Link)`
   text-decoration: none;
-`;
-
-const Title = styled.h1`
   display: flex;
-  color: black;
-  font-size: 2.5rem;
   align-items: center;
+  gap: 16px;
 
   //creates opticxal symmetry
   margin-left: -16px;
+
+  @media(max-width: 850px) {
+    margin-top: 16px;
+  }
+`;
+
+const Title = styled.h1`
+  color: black;
+  font-size: 2.5rem;
+
+  @media(max-width: 850px) {
+    display: none;
+  }
 `;
 
 const Nav = styled.nav`
