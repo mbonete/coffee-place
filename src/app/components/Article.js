@@ -2,19 +2,18 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export default function Article({articleProps}){
-  const { title, text, src, alt } = articleProps;
+export default function Article(){
   return (
     <Wrapper>
       <TextWrapper>
-        <Title>{title}</Title>
+        <Title>The art of brewing coffee</Title>
         <Text>
-          {text}
+          Coffee is not just a beverage; it is an art form. Behind every exceptional cup of coffee lies a carefully choreographed dance of beans, water, and technique. Brewing coffee is an art that encompasses science, precision, and passion. At The Coffee Place we celebrate the art of brewing. From the selection of the finest beans from around the world to the precise calibration of water temperature and extraction time, we believe that crafting the perfect cup of coffee is a journey worth embarking upon.
         </Text>
       </TextWrapper>
       <Image 
-        src={src} 
-        alt={alt}
+        src='/coffee-machine.jpg'
+        alt='coffee brew'
         width={400}
         height={450}
         style={{objectFit:'cover', borderRadius: '2px'}}

@@ -1,13 +1,12 @@
 'use client'
 import React from 'react';
 import styled from 'styled-components';
-import { useCart, SERVICE_COST, TAX_COST, TOTAL_FEES } from "../hooks/useCart";
+import { useCart, SERVICE_COST, TAX_COST } from "../hooks/useCart";
 
 
 
 export default function Checkout(){
   const { total, subtotal, reset } = useCart();
-  console.log('debug', TOTAL_FEES, total, typeof total, typeof TOTAL_FEES, total == TOTAL_FEES)
   const handleCheckout = () => {
     reset();
     alert('Your order has been sent');

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function About() {
   return (
-    <ArticleWrapper>
+    <Wrapper>
       <Title>About Us</Title>
       <Grid>
         <Text>
@@ -28,13 +28,13 @@ export default function About() {
         </Text>
       </Grid>
       
-    </ArticleWrapper>
+    </Wrapper>
   )
 }
 
 
 
-const ArticleWrapper = styled.article`
+const Wrapper = styled.article`
   display: flex;
   flex: 1;
   flex-direction: column;
