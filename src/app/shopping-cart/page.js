@@ -2,9 +2,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import products from '../products';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { PageWrapper } from '../components/PageWrapper';
 import { useCart } from "../hooks/useCart";
 import Checkout from '../components/Checkout';
 
@@ -14,8 +11,7 @@ export default function ShoppingCartPage() {
   const cartProductIds = Object.keys(cartLines);
 
   return (
-    <PageWrapper> 
-      <Header />
+    <>
       <Title>Shopping Cart</Title>
           <Grid>
             <ListWrapper>
@@ -45,7 +41,6 @@ export default function ShoppingCartPage() {
                               value={quantity} 
                               onChange={(e) => changeQuantity(productId, Number(e.target.value))}
                             >
-
                               <option value={0}>0</option>
                               <option value={1} defaultValue>1</option>
                               <option value={2}>2</option>
@@ -65,9 +60,7 @@ export default function ShoppingCartPage() {
             <Checkout />
             
           </Grid>
-        
-      <Footer />
-    </PageWrapper>
+        </>
   )
 }
 

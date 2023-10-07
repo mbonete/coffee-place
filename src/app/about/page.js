@@ -1,8 +1,5 @@
 'use client';
 import styled from 'styled-components';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { PageWrapper } from '../components/PageWrapper';
 import Image from 'next/image';
 
 export default function About() {
@@ -15,24 +12,20 @@ export default function About() {
   const { title, text, src, alt } = articleProps;
 
   return (
-    <PageWrapper> 
-      <Header />
-      <ArticleWrapper>
-        <Title>{title}</Title>
-        <Grid>
-          <TextWrapper>
-            <Text>{text}</Text>
-          </TextWrapper>
-          <Image 
-            src={src}
-            alt={alt}
-            height={600}
-            width={900}
-          />
-        </Grid>
-      </ArticleWrapper>
-      <Footer />
-    </PageWrapper>
+    <ArticleWrapper>
+      <Title>{title}</Title>
+      <Grid>
+        <TextWrapper>
+          <Text>{text}</Text>
+        </TextWrapper>
+        <Image 
+          src={src}
+          alt={alt}
+          height={600}
+          width={900}
+        />
+      </Grid>
+    </ArticleWrapper>
   )
 }
 

@@ -1,17 +1,12 @@
-import Header from "./components/Header";
 import Article from "./components/Article";
-import Footer from "./components/Footer";
-import { PageWrapper } from "./components/PageWrapper";
 import Gallery from "./components/Gallery";
 
 export default function Home() {
   return (
-    <PageWrapper> 
-      <Header />
+    <> 
       <Gallery />
       <Article articleProps={articleProps}/>
-      <Footer />
-    </PageWrapper>
+    </>
   )
 }
 

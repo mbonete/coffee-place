@@ -2,15 +2,11 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import products from '../products';
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { PageWrapper } from "../components/PageWrapper";
 import ShoppingCartIconButton from '../components/ShoppingCartIconButton';
 
 export default function Products() {
   return (
-    <PageWrapper> 
-      <Header />
+    <>
       <Title>Our Products</Title>
       <Wrapper>
         {
@@ -36,8 +32,7 @@ export default function Products() {
           ))
         }      
       </Wrapper>
-      <Footer />
-    </PageWrapper>
+    </>
   )
 }
 

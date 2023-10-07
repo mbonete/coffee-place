@@ -5,11 +5,7 @@ import Article from '../components/Article';
 
 export default function Contact() {
   return (
-    <PageWrapper> 
-      <Header />
-      <Article articleProps={articleProps}/>
-      <Footer />
-    </PageWrapper>
+    <Article articleProps={articleProps}/>
   )
 }
 
