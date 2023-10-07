@@ -10,8 +10,8 @@ export const TOTAL_FEES = parseFloat(Number(SERVICE_COST) + Number(TAX_COST)).to
 
 export const CartProvider = ({ children }) => {
   const [ cartLines, setCartLines ] = React.useState({});
-  const [ subtotal, setSubtotal ] = React.useState(0);
-  const [ total, setTotal ] = React.useState(0);
+  const [ subtotal, setSubtotal ] = React.useState('0');
+  const [ total, setTotal ] = React.useState('0');
 
   const updatePricesSummary = (cartLines) => {
     const subtotal = Object
@@ -19,6 +19,12 @@ export const CartProvider = ({ children }) => {
       .reduce((acc, productId) => {
         return acc + Number(products[productId].price) * cartLines[productId];
       }, 0);
+
+    if (subtotal === 0) {
+      setSubtotal('0');
+      setTotal('0');
+      return;
+    }
 
     const total = subtotal + Number(SERVICE_COST) + Number(TAX_COST);
 
