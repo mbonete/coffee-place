@@ -19,7 +19,6 @@ export default function Header(){
       <Nav>
         <NavLink href='/products'>Products</NavLink>
         <NavLink href='/about'>About us</NavLink>
-        <NavLink href='/contact'>Contact</NavLink>
         <NavLink href='/shopping-cart'><ShoppingCart/></NavLink>
       </Nav>
     </Wrapper>

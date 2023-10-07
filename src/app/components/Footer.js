@@ -14,7 +14,6 @@ export default function Footer(){
         <Nav>
           <Title>Navigation</Title>
           <NavLink href='/about-us'>About us</NavLink>
-          <NavLink href='/contact'>Contact</NavLink>
           <NavLink href='/products'>Products</NavLink>
           <NavLink href='/shopping-cart'>Shopping Cart</NavLink>
         </Nav>
