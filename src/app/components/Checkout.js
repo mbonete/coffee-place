@@ -1,14 +1,16 @@
 'use client'
 import React from 'react';
 import styled from 'styled-components';
-import { useCart, SERVICE_COST, TAX_COST } from "../hooks/useCart";
+import { useCart, SERVICE_COST, TAX_COST, TOTAL_FEES } from "../hooks/useCart";
 
 
 
 export default function Checkout(){
-  const { total, subtotal } = useCart();
-  console.log('debug', total, typeof total, total === 2.99)
-  
+  const { total, subtotal, reset } = useCart();
+  const handleCheckout = () => {
+    reset();
+    alert('Your order has been sent');
+  }
   return(
 
     <CheckoutWrapper>
@@ -23,9 +25,9 @@ export default function Checkout(){
         </CheckoutBox>
         <Total>
           <Bold>Total</Bold>
-          <Bold style={{display:'grid', justifyItems: 'end'}}>${total == 2.99 ? 0 : total}</Bold>
+          <Bold style={{display:'grid', justifyItems: 'end'}}>${total == TOTAL_FEES ? 0 : total}</Bold>
         </Total>
-        <CheckoutButton>Checkout</CheckoutButton>
+        <CheckoutButton onClick={handleCheckout} disabled={total == TOTAL_FEES}>Checkout</CheckoutButton>
       </CheckoutWrapper>
   )
 }
@@ -71,6 +73,11 @@ const CheckoutButton = styled.button`
   background-color: orange;
   color: black;
   padding: 8px 16px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: lightgray;
+  }
 `;
 
 const Bold = styled.span`
