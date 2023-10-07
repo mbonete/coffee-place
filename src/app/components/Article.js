@@ -9,7 +9,7 @@ export default function Article({articleProps}){
       <TextWrapper>
         <Title>{title}</Title>
         <Text>
-          { typeof text === 'string' ? text : text.map((c, i) => <li key={c+i}>{c}</li>) }
+          {text}
         </Text>
       </TextWrapper>
       <Image 
@@ -27,13 +27,21 @@ export default function Article({articleProps}){
 const Wrapper = styled.article`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+  width: 60%;
   padding: 100px;
   height: 100%;
-  width: 60%;
+
   margin: 0 auto;
   background-color: white;
   gap: 48px;
+
+  @media(max-width: 1600px) {
+    grid-template-columns: revert;
+    width: 80%;
+    gap: 32px;
+    padding: 100px 0;
+    justify-items: center;
+  }
 `;
 
 const TextWrapper = styled.div`

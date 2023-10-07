@@ -13,11 +13,12 @@ export default function About() {
           coffee enthusiasts and casual sippers alike. Our dedicated baristas craft each cup with precision and care, using 
           ethically sourced beans from around the world. 
           We also bring the coffee experience to your doorstep. Our online store is a virtual haven for coffee lovers, 
-          offering a wide selection of beans, blends, and brewing equipment. 
-          Whether you are an at-home barista seeking the perfect roast or a gift-giver looking for a thoughtful present, 
-          our online shop has you covered. 
+          offering a wide selection of beans, blends, and brewing equipment. Whether you are an at-home barista seeking 
+          the perfect roast or a gift-giver looking for a thoughtful present, our online shop has you covered.
+           
         </Text>
         <Text>
+
           At The Coffee Place, sustainability is a core value. 
           We strive to minimize our environmental footprint by using eco-friendly packaging and supporting fair-trade practices. 
           With every sip of our coffee, you are not just enjoying a delicious brew; you are also contributing to a more sustainable 
@@ -39,7 +40,7 @@ const ArticleWrapper = styled.article`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  width: 80%;
+  width: 60%;
   height: 100%;
   margin: 0 auto;
   padding-bottom: 64px;
@@ -58,7 +59,7 @@ display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
 
-  @media(max-width: 800px){
+  @media(max-width: 1600px){
     grid-template-columns: revert;
   }
 `;
