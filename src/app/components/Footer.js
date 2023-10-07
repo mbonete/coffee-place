@@ -44,7 +44,7 @@ const MaxWidthWrapper = styled.div`
   margin: 0 auto;
 
   //article width
-  width: 848px;
+  max-width: 848px;
 `;
 
 const Title = styled.h3`
