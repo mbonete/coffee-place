@@ -71,8 +71,16 @@ const Grid = styled.div`
   padding-bottom: 48px;
   margin: 0 auto;
 
-  @media (max-width: 1200px){
+  @media (max-width: 1600px){
+    width: 90%;
+
+  }
+
+  @media (max-width: 850px){
     width: 95%;
+    grid-template-columns: revert;
+    gap: 32px;
+    padding: 24px;
   }
 `;
 const ListWrapper = styled.div`
@@ -84,6 +92,7 @@ const ListWrapper = styled.div`
 
   @media (max-width: 850px){
     margin: 8px;
+    min-height: revert;
   }
 `;
 
