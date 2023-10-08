@@ -11,7 +11,7 @@ export default function Article(){
           Coffee is not just a beverage; it is an art form. Behind every exceptional cup of coffee lies a carefully choreographed dance of beans, water, and technique. Brewing coffee is an art that encompasses science, precision, and passion. At The Coffee Place we celebrate the art of brewing. From the selection of the finest beans from around the world to the precise calibration of water temperature and extraction time, we believe that crafting the perfect cup of coffee is a journey worth embarking upon.
         </Text>
       </TextWrapper>
-      <Image 
+      <ArticleImage 
         src='/coffee-machine.jpg'
         alt='coffee brew'
         width={400}
@@ -41,6 +41,10 @@ const Wrapper = styled.article`
     padding: 100px 0;
     justify-items: center;
   }
+
+  @media(max-width: 850px) {
+    padding: 32px 8px;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -55,6 +59,11 @@ const Title = styled.h2`
   font-weight: 100;
   margin-bottom: 16px;
   text-transform: uppercase;
+
+  @media(max-width: 850px) {
+    font-size: 1.35rem;
+    text-align: center;
+  }
 `;
 
 const Text = styled.p`
@@ -62,5 +71,15 @@ const Text = styled.p`
   color: black;
   font-weight: 200;
   line-height: 2.5;
+  overflow-wrap: break-word;
+  hyphens: auto;
+`;
+
+
+const ArticleImage = styled(Image)`
+  @media(max-width: 850px) {
+    height: 200px;
+    width: 400px;
+  }
 
 `;

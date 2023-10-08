@@ -44,6 +44,10 @@ const GalleryImageWrap = styled.div`
   height: 100%;
   overflow: hidden;
   background-color: black;
+
+  @media(max-width: 850px){
+    height: 200px;
+  }
 `;
 
 const GalleryImage = styled(Image)`
@@ -57,4 +61,5 @@ const GalleryImage = styled(Image)`
     filter: revert;
     transform: scale(1.02);
   }
+
 `;
