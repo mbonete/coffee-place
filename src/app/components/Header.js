@@ -31,10 +31,10 @@ const Wrapper = styled.div`
   align-items: start;
 
   @media(max-width: 850px) {
-    padding: 8px 24px;
+    padding: 16px 24px;
     flex-direction: column;
     align-items: center;
-    height: 120px;
+    height: 130px;
     background-color: hsl(45, 20%, 94%);
   }
 `;
