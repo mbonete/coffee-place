@@ -7,10 +7,10 @@ export default function Footer(){
   return (
     <Wrapper>
       <MaxWidthWrapper>
-        <Logo>
-          <Image src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
-          The Coffee Place
-        </Logo>
+      <LogoLink href='/'>
+        <LogoImage src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
+        <Title>The Coffee Place</Title>
+      </LogoLink>
         <Nav>
           <Title>Navigation</Title>
           <NavLink href='/about-us'>About us</NavLink>
@@ -45,29 +45,62 @@ const MaxWidthWrapper = styled.div`
 
   //article width
   max-width: 848px;
+
+  @media(max-width: 850px) {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+`;
+
+const LogoLink = styled(Link)`
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: auto;
+
+  //creates opticxal symmetry
+  margin-left: -16px;
+
+  @media(max-width: 850px) {
+    padding: 8px;
+    gap: 4px;
+    margin-right: 0;
+  }
 `;
 
 const Title = styled.h3`
   color: black;
   font-size: 1.15rem;
   margin-bottom: 8px;
+  
+  @media(max-width: 850px) {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
 `;
 
-const Logo = styled.h3`
+const LogoImage = styled(Image)`
   color: black;
-  font-size: 1.15rem;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
+  font-size: 2.5rem;
 
-  //optical baseline alignment with nav components
-  margin-top: -5px;
+  @media(max-width: 850px) {
+    height: 20px;
+    width: 20px;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 8px;
+  gap: 8px;
+
+  @media(max-width: 850px) {
+    align-items: center;
+  }
 `;
 
 const NavLink = styled(Link)`
