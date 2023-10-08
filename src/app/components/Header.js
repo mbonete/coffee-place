@@ -35,6 +35,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     height: 120px;
+    background-color: hsl(45, 20%, 94%);
   }
 `;
 const LogoLink = styled(Link)`
@@ -47,8 +48,8 @@ const LogoLink = styled(Link)`
   margin-left: -16px;
 
   @media(max-width: 850px) {
+    padding: 8px;
     gap: 4px;
-    border-bottom: 1px solid black;
   }
 `;
 
@@ -57,7 +58,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
 
   @media(max-width: 850px) {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 `;
 
@@ -66,7 +67,8 @@ const LogoImage = styled(Image)`
   font-size: 2.5rem;
 
   @media(max-width: 850px) {
-    display: none;
+    height: 20px;
+    width: 20px;
   }
 `;
 
@@ -101,6 +103,14 @@ const NavLink = styled(Link)`
 
   @media(max-width: 850px) {
     font-size: 1.15rem;
+    text-transform: revert;
+
+
+    &:hover {
+      border-bottom: revert;
+      color: hsl(39, 100%, 38%);
+    }
+
   }
 `;
 

@@ -37,7 +37,7 @@ export default function ShoppingCartPage() {
                           <TagRow>
                             <Price>${product.price}</Price>
                             <select 
-                              style={{width: '60px'}} 
+                              style={{width: '40px'}} 
                               value={quantity} 
                               onChange={(e) => changeQuantity(productId, Number(e.target.value))}
                             >
@@ -73,14 +73,13 @@ const Grid = styled.div`
 
   @media (max-width: 1600px){
     width: 90%;
-
   }
 
   @media (max-width: 850px){
     width: 95%;
     grid-template-columns: revert;
     gap: 32px;
-    padding: 24px;
+    padding: 32px 8px;
   }
 `;
 const ListWrapper = styled.div`
@@ -102,6 +101,12 @@ const Title = styled.h3`
   font-weight: 100;
   text-transform: uppercase;
   margin: 0 auto;
+
+  @media(max-width: 850px){
+    padding: 16px;
+    padding-top: 32px;
+    font-size: 1.35rem;
+  }
 `;
 
 const GalleryElement = styled.div`
@@ -115,6 +120,13 @@ const GalleryImage = styled(Image)`
   min-width: 100px;
   min-height: 100px;
   border: 1px solid black;
+
+  @media(max-width: 850px) {
+    min-width: revert;
+    min-height: revert;
+    max-width: 80px;
+    max-height: 100px;
+  }
 `;
 
 const Tag = styled.div`
@@ -123,6 +135,10 @@ const Tag = styled.div`
   grid-template-rows: 1fr 1fr;
   padding: 16px;
   gap: 8px;
+
+  @media (max-width: 850px){
+    padding: 8px;
+  }
 `;
 const TagRow = styled.div`
   display: grid;
@@ -139,8 +155,15 @@ const Bold = styled.span`
   -webkit-line-clamp: 1;
   overflow: hidden;
 
+  @media (max-width: 850px){
+    font-size: 0.85rem;
+  }
+
 `;
 const Price = styled.span`
   font-weight: 400;
-  font-size: 1rem;
+
+  @media (max-width: 850px){
+    font-size: 0.85rem;
+  }
 `;

@@ -31,7 +31,6 @@ const Wrapper = styled.article`
   height: 100%;
 
   margin: 0 auto;
-  background-color: white;
   gap: 48px;
 
   @media(max-width: 1600px) {

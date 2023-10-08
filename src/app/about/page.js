@@ -44,6 +44,11 @@ const Wrapper = styled.article`
   height: 100%;
   margin: 0 auto;
   padding-bottom: 64px;
+
+  @media(max-width: 850px) {
+    padding: 32px 8px;
+    width: 80%;
+  }
 `;
 
 
@@ -53,6 +58,11 @@ const Title = styled.h2`
   font-weight: 100;
   text-transform: uppercase;
   margin-bottom: 48px;
+
+  @media(max-width: 850px) {
+    font-size: 1.35rem;
+    text-align: center;
+  }
 `;
 const Grid = styled.div`
 display: grid;
@@ -70,4 +80,11 @@ const Text = styled.p`
   line-height: 2.6;
   height: 100%;
   text-align: justify;
+
+  @media(max-width: 850px) {
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: revert;
+  }
+
 `;

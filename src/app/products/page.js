@@ -45,8 +45,8 @@ const Wrapper = styled.div`
   padding-bottom: 100px;
 
   @media(max-width: 850px){
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 300px;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 400px;
   }
 `;
 
@@ -57,6 +57,12 @@ const Title = styled.h3`
   text-transform: uppercase;
   margin: 0 auto;
   padding-bottom: 48px;
+
+  @media(max-width: 850px){
+    padding: 16px;
+    padding-top: 32px;
+    font-size: 1.35rem;
+  }
 `;
 const GalleryElement = styled.div`
   width: 100%;
@@ -65,6 +71,10 @@ const GalleryElement = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media(max-width: 850px){
+    padding: 16px;
+  }
 `;
 
 const GalleryImage = styled(Image)`
@@ -72,7 +82,7 @@ const GalleryImage = styled(Image)`
   width: 100%;
   height: 80%;
   @media(max-width: 850px){
-    height: 60%;
+    height: 70%;
   }
 `;
 
@@ -84,7 +94,7 @@ const Tag = styled.div`
   border: 1px solid lightgray;
 
   @media(max-width: 850px){
-    height: 40%;
+    height: 30%;
   }
 `;
 const CoffeInfo = styled.div`
