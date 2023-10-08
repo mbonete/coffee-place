@@ -10,7 +10,7 @@ export default function Header(){
   return (
     <Wrapper>
       <LogoLink href='/'>
-        <Image src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
+        <LogoImage src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
         <Title>The Coffee Place</Title>
       </LogoLink>
      
@@ -29,6 +29,13 @@ const Wrapper = styled.div`
   height: 150px;
   padding: 24px 48px;
   align-items: start;
+
+  @media(max-width: 850px) {
+    padding: 8px 24px;
+    flex-direction: column;
+    align-items: center;
+    height: 120px;
+  }
 `;
 const LogoLink = styled(Link)`
   text-decoration: none;
@@ -40,11 +47,21 @@ const LogoLink = styled(Link)`
   margin-left: -16px;
 
   @media(max-width: 850px) {
-    margin-top: 16px;
+    gap: 4px;
+    border-bottom: 1px solid black;
   }
 `;
 
 const Title = styled.h1`
+  color: black;
+  font-size: 2.5rem;
+
+  @media(max-width: 850px) {
+    font-size: 1.15rem;
+  }
+`;
+
+const LogoImage = styled(Image)`
   color: black;
   font-size: 2.5rem;
 
@@ -60,6 +77,15 @@ const Nav = styled.nav`
   //creates baseline effect
   margin-top: 22px;
 
+  @media(max-width: 850px) {
+    gap: 48px;
+    align-items: baseline;
+    justify-content: center;
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+
 `;
 
 const NavLink = styled(Link)`
@@ -71,6 +97,10 @@ const NavLink = styled(Link)`
 
   &:hover {
     border-bottom: 3px solid hsl(39, 100%, 38%);
+  }
+
+  @media(max-width: 850px) {
+    font-size: 1.15rem;
   }
 `;
 
