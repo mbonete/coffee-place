@@ -13,7 +13,7 @@ export default function Footer(){
       </LogoLink>
         <Nav>
           <Title>Navigation</Title>
-          <NavLink href='/about-us'>About us</NavLink>
+          <NavLink href='/about'>About us</NavLink>
           <NavLink href='/products'>Products</NavLink>
           <NavLink href='/shopping-cart'>Shopping Cart</NavLink>
         </Nav>
