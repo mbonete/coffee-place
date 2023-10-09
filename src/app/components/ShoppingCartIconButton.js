@@ -16,13 +16,15 @@ export default function ShoppingCartIconButton({ product }) {
 
   return (
     <Button onClick={handleToggle}>
-      {
-        isAdded ? (
-          <CheckCircle size={30} color='green'/>
-        ) : (
-          <ShoppingCart size={30} color='orange'/>
-        )
-      }
+      <Span>
+        {
+          isAdded ? (
+            <CheckCircle size={30} color='green'/>
+          ) : (
+            <ShoppingCart size={30} color='orange'/>
+          )
+        }
+      </Span>
     </Button>
   )
 }
@@ -33,8 +35,10 @@ const Button = styled.button`
   cursor: pointer;
   padding: 0;
   margin: 0;
+`;
 
+const Span = styled.div`
   &:active {
-    transform: scale(0.9)
+    transform: scale(0.9);
   }
 `;
