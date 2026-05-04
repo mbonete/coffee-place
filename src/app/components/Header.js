@@ -1,116 +1,158 @@
 'use client';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ShoppingCart } from 'react-feather';
+import { useCart } from '../hooks/useCart';
+import { QUERIES } from '../lib/breakpoints';
 
+export default function Header() {
+  const { cartCount } = useCart();
+  const cartLabel = `[CART/${String(cartCount).padStart(2, '0')}]`;
 
-
-export default function Header(){
   return (
     <Wrapper>
-      <LogoLink href='/'>
-        <LogoImage src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
-        <Title>The Coffee Place</Title>
-      </LogoLink>
-     
-      <Nav>
-        <NavLink href='/products'>Products</NavLink>
-        <NavLink href='/about'>About us</NavLink>
-        <NavLink href='/shopping-cart'><ShoppingCart/></NavLink>
-      </Nav>
+      <Inner>
+        <BrandLink href="/" aria-label="The Coffee Place — home">
+          <Mark>※</Mark>
+          <Wordmark>
+            <span>The Coffee</span>
+            <span>Place</span>
+          </Wordmark>
+        </BrandLink>
+
+        <Nav aria-label="Primary">
+          <NavLink href="/products">
+            <Idx>01</Idx>
+            <span>Menu</span>
+          </NavLink>
+          <NavLink href="/about">
+            <Idx>02</Idx>
+            <span>About</span>
+          </NavLink>
+          <CartLink
+            href="/shopping-cart"
+            aria-label={`Shopping cart, ${cartCount} ${cartCount === 1 ? 'item' : 'items'}`}
+            $active={cartCount > 0}
+          >
+            {cartLabel}
+          </CartLink>
+        </Nav>
+      </Inner>
     </Wrapper>
-  )
+  );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: 150px;
-  padding: 24px 48px;
-  align-items: start;
-
-  @media(max-width: 850px) {
-    padding: 16px 24px;
-    flex-direction: column;
-    align-items: center;
-    height: 130px;
-    background-color: hsl(45, 20%, 94%);
-  }
+const Wrapper = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bone);
+  border-bottom: var(--rule-w) solid var(--ink);
 `;
-const LogoLink = styled(Link)`
-  text-decoration: none;
+
+const Inner = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-6);
 
-  //creates opticxal symmetry
-  margin-left: -16px;
-
-  @media(max-width: 850px) {
-    padding: 8px;
-    gap: 4px;
+  @media ${QUERIES.tabletAndDown} {
+    padding: var(--space-3) var(--space-4);
   }
 `;
 
-const Title = styled.h1`
-  color: black;
-  font-size: 2.5rem;
-
-  @media(max-width: 850px) {
-    font-size: 1rem;
-  }
+const BrandLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--ink);
+  padding: var(--space-2);
+  margin-left: calc(-1 * var(--space-2));
 `;
 
-const LogoImage = styled(Image)`
-  color: black;
-  font-size: 2.5rem;
+const Mark = styled.span`
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ink);
+`;
 
-  @media(max-width: 850px) {
-    height: 20px;
-    width: 20px;
-  }
+const Wordmark = styled.span`
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--font-display), serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 64px;
+  align-items: center;
+  gap: var(--space-6);
 
-  //creates baseline effect
-  margin-top: 22px;
-
-  @media(max-width: 850px) {
-    gap: 48px;
-    align-items: baseline;
-    justify-content: center;
-    white-space: nowrap;
-    margin: 0 auto;
-    margin-bottom: 8px;
+  @media ${QUERIES.mobile} {
+    gap: var(--space-4);
   }
-
 `;
 
 const NavLink = styled(Link)`
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
   text-decoration: none;
-  color: black;
+  color: var(--ink);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 1.25rem;
-  font-weight: 700;
+  padding: var(--space-2) 2px;
+  position: relative;
 
-  &:hover {
-    border-bottom: 3px solid hsl(39, 100%, 38%);
+  &::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--motion) var(--easing);
   }
-
-  @media(max-width: 850px) {
-    font-size: 1.15rem;
-    text-transform: revert;
-
-
-    &:hover {
-      border-bottom: revert;
-      color: hsl(39, 100%, 38%);
-    }
-
-  }
+  &:hover::after { transform: scaleX(1); }
 `;
 
+const Idx = styled.span`
+  font-size: 0.625rem;
+  color: var(--muted);
+  font-weight: 500;
+`;
+
+const CartLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 var(--space-3);
+  border: var(--rule-w-2) solid var(--ink);
+  background: ${(p) => (p.$active ? 'var(--accent)' : 'var(--bone)')};
+  color: var(--ink);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-variant-numeric: tabular-nums;
+  transition: background-color var(--motion) var(--easing), color var(--motion) var(--easing);
+
+  &:hover {
+    background: var(--ink);
+    color: var(--bone);
+  }
+`;

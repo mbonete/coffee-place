@@ -1,141 +1,113 @@
 'use client';
-import Image from 'next/image';
 import styled from 'styled-components';
 import products from '../products';
-import ShoppingCartIconButton from '../components/ShoppingCartIconButton';
+import ProductCard from '../components/ProductCard';
+import { QUERIES } from '../lib/breakpoints';
 
 export default function Products() {
+  const all = Object.values(products);
+
   return (
-    <>
-      <Title>Our Products</Title>
-      <Wrapper>
-        {
-          Object.values(products).map((product) => (
-            <GalleryElement key={product.productId}>
-              <GalleryImage 
-                src={product.src} 
-                alt={product.alt} 
-                width={500}
-                height={500}
-              />
-              <Tag>
-                <CoffeInfo>
-                  <Name>{product.name}</Name>
-                  <Description>{product.description}</Description>
-                </CoffeInfo>
-                <PriceInfo>
-                  <Price>${product.price}</Price>
-                  <ShoppingCartIconButton product={product}/>
-                </PriceInfo>
-              </Tag>
-            </GalleryElement>
-          ))
-        }      
-      </Wrapper>
-    </>
-  )
+    <Wrapper>
+      <Masthead>
+        <Eyebrow>The menu — {String(all.length).padStart(2, '0')} ITEMS · UPDATED WEEKLY</Eyebrow>
+        <Title>
+          Six staples.<br />
+          <Em>Nothing else.</Em>
+        </Title>
+        <Lede>
+          We do not chase the seasonal lavender mocha. We do not bend coffee
+          into a dessert. We do these six, and we do them on purpose.
+        </Lede>
+        <ColumnHead>
+          <span>Item</span>
+          <span style={{ textAlign: 'right' }}>Price</span>
+        </ColumnHead>
+      </Masthead>
+
+      <Grid>
+        {all.map((product, i) => (
+          <ProductCard
+            key={product.productId}
+            product={product}
+            index={i}
+            priority={i < 3}
+          />
+        ))}
+      </Grid>
+    </Wrapper>
+  );
 }
 
-
-
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 550px;
-  padding-bottom: 100px;
-
-  @media(max-width: 850px){
-    grid-template-columns: 1fr;
-    grid-auto-rows: 400px;
-  }
-`;
-
-const Title = styled.h3`
-  font-size: 1.625rem;
-  color: black;
-  font-weight: 100;
-  text-transform: uppercase;
+  max-width: 1320px;
   margin: 0 auto;
-  padding-bottom: 48px;
+  padding: var(--space-12) var(--space-6) var(--space-16);
 
-  @media(max-width: 850px){
-    padding: 16px;
-    padding-top: 32px;
-    font-size: 1.35rem;
+  @media ${QUERIES.tabletAndDown} {
+    padding: var(--space-10) var(--space-4) var(--space-12);
   }
 `;
-const GalleryElement = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 4px;
+
+const Masthead = styled.header`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-  @media(max-width: 850px){
-    padding: 16px;
-  }
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--rule-w-2) solid var(--ink);
 `;
 
-const GalleryImage = styled(Image)`
-  object-fit: cover;
-  width: 100%;
-  height: 80%;
-  background-color: gray;
-
-  @media(max-width: 850px){
-    height: 70%;
-  }
+const Eyebrow = styled.span`
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
 `;
 
-const Tag = styled.div`
-  display: flex;
-  height: 20%;
-  justify-content: space-between;
-  padding: 16px;
-  border: 1px solid lightgray;
-
-  @media(max-width: 850px){
-    height: 30%;
-  }
+const Title = styled.h1`
+  font-family: var(--font-display), serif;
+  font-size: clamp(2.75rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
 `;
-const CoffeInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 80%;
-  justify-content: space-between;
-  padding-right: 8px;
 
-`;
-const PriceInfo = styled.div`
-  display: grid;
-  grid-template-columns: 50px 40px;
-  align-items: end;
-  justify-items: end;
-  gap: 16px;
-
-  @media (max-width: 850px) {
-    grid-template-columns: revert;
-    grid-template-rows: 1fr 1fr;
-    gap: 8px;
-    justify-items: end;
-    align-items: self-start;
-  }
-
-  `;
-const Name = styled.span`
+const Em = styled.em`
+  font-style: italic;
+  color: var(--muted);
   font-weight: 600;
 `;
-const Price = styled.span`
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin-bottom: -2px;
+
+const Lede = styled.p`
+  max-width: 56ch;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink-2);
 `;
-const Description = styled.p`
-  color: gray;
-  //ellipsis
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
+
+const ColumnHead = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+
+  @media ${QUERIES.tabletAndDown} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media ${QUERIES.mobile} {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
 `;

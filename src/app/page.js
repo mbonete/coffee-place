@@ -1,12 +1,13 @@
-import Article from "./components/Article";
-import Gallery from "./components/Gallery";
+import Hero from './components/Hero';
+import FeaturedStrip from './components/FeaturedStrip';
+import Article from './components/Article';
 
 export default function Home() {
   return (
-    <> 
-      <Gallery />
+    <>
+      <Hero />
+      <FeaturedStrip />
       <Article />
     </>
-  )
+  );
 }
-

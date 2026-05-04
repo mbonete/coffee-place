@@ -1,115 +1,186 @@
 'use client';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Image from 'next/image';
+import { QUERIES } from '../lib/breakpoints';
 
-export default function Footer(){
+export default function Footer() {
   return (
     <Wrapper>
-      <MaxWidthWrapper>
-      <LogoLink href='/'>
-        <LogoImage src='/coffee-logo.svg' alt='coffee logo' width='40' height='40'/>
-        <Title>The Coffee Place</Title>
-      </LogoLink>
-        <Nav>
-          <Title>Navigation</Title>
-          <NavLink href='/about'>About us</NavLink>
-          <NavLink href='/products'>Products</NavLink>
-          <NavLink href='/shopping-cart'>Shopping Cart</NavLink>
-        </Nav>
-        <Nav>
-          <Title>Resources</Title>
-          <NavLink href=''>Our blog</NavLink>
-          <NavLink href=''>Network</NavLink>
-          <NavLink href=''>Partneships</NavLink>
-          <NavLink href=''>Social media</NavLink>
-        </Nav>
-      </MaxWidthWrapper>
+      <Top>
+        <Manifesto>
+          <Marker>※</Marker>
+          <ManifestoText>
+            Strong coffee. <em>Strong opinions.</em>
+            <br />
+            Roasted in small batches, brewed with care.
+          </ManifestoText>
+        </Manifesto>
+
+        <Cols>
+          <Col>
+            <ColTitle>Shop</ColTitle>
+            <FootLink href="/products"><Idx>01</Idx>Menu</FootLink>
+            <FootLink href="/shopping-cart"><Idx>02</Idx>Cart</FootLink>
+            <FootLink href="/about"><Idx>03</Idx>About</FootLink>
+          </Col>
+          <Col>
+            <ColTitle>Read</ColTitle>
+            <FootLink href="#"><Idx>04</Idx>Journal</FootLink>
+            <FootLink href="#"><Idx>05</Idx>Roasters</FootLink>
+            <FootLink href="#"><Idx>06</Idx>Wholesale</FootLink>
+          </Col>
+        </Cols>
+      </Top>
+
+      <BottomRule />
+
+      <Bottom>
+        <BottomLeft>© {new Date().getFullYear()} The Coffee Place</BottomLeft>
+        <BottomRight>
+          <span>EST. NOWHERE IN PARTICULAR</span>
+          <Pulse aria-hidden="true">●</Pulse>
+        </BottomRight>
+      </Bottom>
     </Wrapper>
-  )
+  );
 }
 
-const Wrapper = styled.div`
-  height: 100%;
-  background-color: hsl(28.16, 40.5%, 76.3%);
-  padding: 24px; 
+const Wrapper = styled.footer`
+  border-top: var(--rule-w-2) solid var(--ink);
+  background: var(--bone);
+  padding: var(--space-12) var(--space-6) var(--space-4);
+  margin-top: var(--space-20);
+
+  @media ${QUERIES.tabletAndDown} {
+    padding: var(--space-10) var(--space-4) var(--space-4);
+  }
 `;
 
-const MaxWidthWrapper = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 48px;
+const Top = styled.div`
+  max-width: 1320px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-12);
 
-  //article width
-  max-width: 848px;
-
-  @media(max-width: 850px) {
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
+  @media ${QUERIES.tabletAndDown} {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
   }
 `;
 
-const LogoLink = styled(Link)`
-  text-decoration: none;
+const Manifesto = styled.div`
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-right: auto;
+  gap: var(--space-3);
+  align-items: flex-start;
+`;
 
-  //creates opticxal symmetry
-  margin-left: -16px;
+const Marker = styled.span`
+  font-size: 1.25rem;
+  line-height: 1;
+`;
 
-  @media(max-width: 850px) {
-    padding: 8px;
-    gap: 4px;
-    margin-right: 0;
+const ManifestoText = styled.p`
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 28ch;
+
+  em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--muted);
   }
 `;
 
-const Title = styled.h3`
-  color: black;
-  font-size: 1.15rem;
-  margin-bottom: 8px;
-  
-  @media(max-width: 850px) {
-    font-size: 1rem;
-    margin-bottom: 0;
-  }
+const Cols = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
 `;
 
-const LogoImage = styled(Image)`
-  color: black;
-  font-size: 2.5rem;
-
-  @media(max-width: 850px) {
-    height: 20px;
-    width: 20px;
-  }
-`;
-
-const Nav = styled.nav`
+const Col = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 8px;
-  gap: 8px;
+  gap: var(--space-2);
+`;
 
-  @media(max-width: 850px) {
-    align-items: center;
+const ColTitle = styled.h3`
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-2);
+`;
+
+const FootLink = styled(Link)`
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  text-decoration: none;
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.9375rem;
+  padding: 2px 0;
+
+  &:hover {
+    box-shadow: inset 0 -2px 0 0 var(--accent);
   }
 `;
 
-const NavLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
+const Idx = styled.span`
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  color: var(--muted);
+`;
 
-  &:hover {
-    text-decoration: revert;
-    color: hsl(28, 75%, 13%);
+const BottomRule = styled.div`
+  max-width: 1320px;
+  margin: var(--space-12) auto var(--space-3);
+  border-top: var(--rule-w) solid var(--ink);
+`;
+
+const Bottom = styled.div`
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+
+  @media ${QUERIES.mobile} {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+`;
+
+const BottomLeft = styled.span``;
+
+const BottomRight = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+`;
+
+const Pulse = styled.span`
+  color: var(--accent-ink);
+  background: var(--accent);
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  animation: pulse 1600ms ease-in-out infinite;
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
   }
 `;

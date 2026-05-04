@@ -1,84 +1,178 @@
 'use client';
 import Image from 'next/image';
 import styled from 'styled-components';
+import { QUERIES } from '../lib/breakpoints';
 
-export default function Article(){
+export default function Article() {
   return (
     <Wrapper>
-      <TextWrapper>
-        <Title>The art of brewing coffee</Title>
-        <Text>
-          Coffee is not just a beverage; it is an art form. Behind every exceptional cup of coffee lies a carefully choreographed dance of beans, water, and technique. Brewing coffee is an art that encompasses science, precision, and passion. At The Coffee Place we celebrate the art of brewing. From the selection of the finest beans from around the world to the precise calibration of water temperature and extraction time, we believe that crafting the perfect cup of coffee is a journey worth embarking upon.
-        </Text>
-      </TextWrapper>
-      <ArticleImage 
-        src='/coffee-machine.jpg'
-        alt='coffee brew'
-        width={400}
-        height={450}
-        style={{objectFit:'cover', borderRadius: '2px'}}
-      />
+      <Inner>
+        <Sidebar>
+          <Eyebrow>Field notes / N°02</Eyebrow>
+          <SmallTitle>The premise.</SmallTitle>
+          <Meta>1,247 WORDS · ~4 MIN READ</Meta>
+        </Sidebar>
+
+        <Column>
+          <Lede>
+            <DropCap>C</DropCap>offee is not a personality. It is a
+            <Em> small, daily decision</Em> made well or made poorly. We chose
+            to make it well — every day, six ways, no exceptions.
+          </Lede>
+          <Body>
+            <p>
+              From the selection of beans to the calibration of grind and
+              extraction, every step is a choice we re-litigate weekly. The bag
+              you take home was roasted within eight days of meeting it. The
+              espresso in your cup was ground twelve seconds ago.
+            </p>
+            <p>
+              We do not have a wall of syrups. We do not have a loyalty app. We
+              have six drinks and a long memory for the people who order them.
+            </p>
+          </Body>
+        </Column>
+
+        <FigureWrap>
+          <Fig>
+            <FigImage
+              src="/coffee1.jpg"
+              alt="Espresso shot pulling into a small cup"
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+            />
+          </Fig>
+          <FigCaption>FIG.2 — A 22-SECOND EXTRACTION, ROUGHLY.</FigCaption>
+        </FigureWrap>
+      </Inner>
     </Wrapper>
-    
-  )
+  );
 }
 
-const Wrapper = styled.article`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 60%;
-  padding: 100px;
-  height: 100%;
+const Wrapper = styled.section`
+  background: var(--bone-2);
+  border-block: var(--rule-w) solid var(--ink);
+`;
 
+const Inner = styled.article`
+  max-width: 1320px;
   margin: 0 auto;
-  gap: 48px;
+  padding: var(--space-16) var(--space-6);
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
 
-  @media(max-width: 1600px) {
-    grid-template-columns: revert;
-    width: 80%;
-    gap: 32px;
-    padding: 100px 0;
-    justify-items: center;
-  }
-
-  @media(max-width: 850px) {
-    padding: 32px 8px;
+  @media ${QUERIES.tabletAndDown} {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-4);
   }
 `;
 
-const TextWrapper = styled.div`
+const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
-  align-text: center;
+  gap: var(--space-3);
+  border-right: var(--rule-w) solid var(--ink);
+  padding-right: var(--space-6);
+
+  @media ${QUERIES.tabletAndDown} {
+    border-right: none;
+    border-bottom: var(--rule-w) solid var(--ink);
+    padding-right: 0;
+    padding-bottom: var(--space-4);
+  }
 `;
 
-const Title = styled.h2`
-  font-size: 1.625rem;
-  color: black;
-  font-weight: 100;
-  margin-bottom: 16px;
+const Eyebrow = styled.span`
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-
-  @media(max-width: 850px) {
-    font-size: 1.35rem;
-    text-align: center;
-  }
+  color: var(--muted);
 `;
 
-const Text = styled.p`
+const SmallTitle = styled.h2`
+  font-family: var(--font-display), serif;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+`;
+
+const Meta = styled.span`
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 56ch;
+`;
+
+const Lede = styled.p`
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+`;
+
+const DropCap = styled.span`
+  float: left;
+  font-family: var(--font-display), serif;
+  font-size: 4.5em;
+  font-weight: 800;
+  line-height: 0.85;
+  margin: 0.05em 0.08em -0.05em 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0 0.05em;
+`;
+
+const Em = styled.em`
+  font-style: italic;
+  color: var(--muted);
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-family: var(--font-body), sans-serif;
   font-size: 1rem;
-  color: black;
-  font-weight: 200;
-  line-height: 2.5;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  line-height: 1.65;
+  color: var(--ink-2);
 `;
 
+const FigureWrap = styled.figure`
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+`;
 
-const ArticleImage = styled(Image)`
-  @media(max-width: 850px) {
-    height: 200px;
-    width: 400px;
-  }
+const Fig = styled.div`
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: var(--rule-w-2) solid var(--ink);
+  overflow: hidden;
+`;
 
+const FigImage = styled(Image)`
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+`;
+
+const FigCaption = styled.figcaption`
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
 `;
