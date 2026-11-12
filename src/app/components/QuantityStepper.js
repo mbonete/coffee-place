@@ -1,75 +1,76 @@
 'use client';
 import styled from 'styled-components';
+import { Minus, Plus } from 'react-feather';
 import { useCart } from '../hooks/useCart';
 
 export default function QuantityStepper({ productId, productName }) {
-  const { cartLines, incrementQuantity, decrementQuantity } = useCart();
+  const { cartLines, increment, decrement } = useCart();
   const quantity = cartLines[productId] ?? 0;
 
   return (
-    <Wrapper role="group" aria-label={productName ? `Quantity for ${productName}` : 'Quantity'}>
+    <Wrapper role="group" aria-label={`Quantity of ${productName}`}>
       <StepButton
-        onClick={() => decrementQuantity(productId)}
+        type="button"
+        onClick={() => decrement(productId)}
         disabled={quantity === 0}
-        aria-label={quantity === 1 ? `Remove ${productName ?? 'item'} from cart` : 'Decrease quantity'}
+        aria-label={quantity === 1 ? `Remove ${productName} from cart` : `One less ${productName}`}
       >
-        −
+        <Minus size={16} strokeWidth={2.75} aria-hidden="true" />
       </StepButton>
-      <Count aria-live="polite">{String(quantity).padStart(2, '0')}</Count>
+      <Count aria-hidden="true">{String(quantity).padStart(2, '0')}</Count>
       <StepButton
-        onClick={() => incrementQuantity(productId)}
-        aria-label={productName ? `Add ${productName} to cart` : 'Increase quantity'}
+        type="button"
+        onClick={() => increment(productId)}
+        disabled={quantity >= 99}
+        aria-label={`One more ${productName}`}
       >
-        +
+        <Plus size={16} strokeWidth={2.75} aria-hidden="true" />
       </StepButton>
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.div`
   display: inline-flex;
   align-items: stretch;
-  border: var(--rule-w) solid var(--ink);
-  background: var(--bone);
-  font-family: var(--font-mono), monospace;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 3px;
 `;
 
-const StepButton = styled.button.attrs({ type: 'button' })`
-  width: 28px;
-  height: 28px;
+const StepButton = styled.button`
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   background: transparent;
   border: none;
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
   color: var(--ink);
   cursor: pointer;
-  transition: background-color var(--motion) var(--easing), color var(--motion) var(--easing);
+  transition: background-color var(--motion-fast) ease, color var(--motion-fast) ease;
 
   &:hover:not(:disabled) {
     background: var(--ink);
-    color: var(--bone);
-  }
-  &:active:not(:disabled) {
-    transform: translateY(1px);
+    color: var(--paper);
   }
   &:disabled {
-    color: var(--muted-2);
+    color: rgb(20 17 15 / 0.3);
     cursor: not-allowed;
+  }
+  &:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
   }
 `;
 
 const Count = styled.span`
-  min-width: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-left: var(--rule-w) solid var(--ink);
-  border-right: var(--rule-w) solid var(--ink);
-  font-family: inherit;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--ink);
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  border-inline: 2px solid var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-size: 1rem;
   font-variant-numeric: tabular-nums;
   user-select: none;
 `;

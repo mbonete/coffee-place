@@ -1,186 +1,124 @@
 'use client';
-import styled from 'styled-components';
 import Link from 'next/link';
-import { QUERIES } from '../lib/breakpoints';
+import styled from 'styled-components';
+import { GitHub } from 'react-feather';
 
 export default function Footer() {
   return (
     <Wrapper>
-      <Top>
-        <Manifesto>
-          <Marker>※</Marker>
-          <ManifestoText>
-            Strong coffee. <em>Strong opinions.</em>
-            <br />
-            Roasted in small batches, brewed with care.
-          </ManifestoText>
-        </Manifesto>
-
+      <Inner>
         <Cols>
           <Col>
             <ColTitle>Shop</ColTitle>
-            <FootLink href="/products"><Idx>01</Idx>Menu</FootLink>
-            <FootLink href="/shopping-cart"><Idx>02</Idx>Cart</FootLink>
-            <FootLink href="/about"><Idx>03</Idx>About</FootLink>
+            <FootLink href="/products">Menu</FootLink>
+            <FootLink href="/shopping-cart">Cart</FootLink>
+            <FootLink href="/about">The small print</FootLink>
           </Col>
           <Col>
-            <ColTitle>Read</ColTitle>
-            <FootLink href="#"><Idx>04</Idx>Journal</FootLink>
-            <FootLink href="#"><Idx>05</Idx>Roasters</FootLink>
-            <FootLink href="#"><Idx>06</Idx>Wholesale</FootLink>
+            <ColTitle>About this site</ColTitle>
+            <Note>
+              The Coffee Place is a fictional shop. Nothing here ships, and no card is ever charged.
+            </Note>
+            <Note>
+              Designed and built by{' '}
+              <ExtLink href="https://github.com/mbonete" target="_blank" rel="noreferrer">
+                Maria Bonete
+              </ExtLink>
+              .
+            </Note>
+            <SourceLink href="https://github.com/mbonete/coffee-place" target="_blank" rel="noreferrer">
+              <GitHub size={16} strokeWidth={2.25} aria-hidden="true" />
+              Source on GitHub
+            </SourceLink>
           </Col>
         </Cols>
-      </Top>
-
-      <BottomRule />
-
-      <Bottom>
-        <BottomLeft>© {new Date().getFullYear()} The Coffee Place</BottomLeft>
-        <BottomRight>
-          <span>EST. NOWHERE IN PARTICULAR</span>
-          <Pulse aria-hidden="true">●</Pulse>
-        </BottomRight>
-      </Bottom>
+      </Inner>
+      <Signature aria-hidden="true">The Coffee Place</Signature>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.footer`
-  border-top: var(--rule-w-2) solid var(--ink);
-  background: var(--bone);
-  padding: var(--space-12) var(--space-6) var(--space-4);
-  margin-top: var(--space-20);
-
-  @media ${QUERIES.tabletAndDown} {
-    padding: var(--space-10) var(--space-4) var(--space-4);
-  }
+  position: relative;
+  margin-top: var(--space-24);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
 `;
 
-const Top = styled.div`
-  max-width: 1320px;
+const Inner = styled.div`
+  max-width: var(--page-max);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: var(--space-12);
-
-  @media ${QUERIES.tabletAndDown} {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-`;
-
-const Manifesto = styled.div`
-  display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
-`;
-
-const Marker = styled.span`
-  font-size: 1.25rem;
-  line-height: 1;
-`;
-
-const ManifestoText = styled.p`
-  font-family: var(--font-display), serif;
-  font-size: clamp(1.25rem, 2vw, 1.625rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  max-width: 28ch;
-
-  em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--muted);
-  }
+  padding: var(--space-16) var(--gutter) var(--space-8);
 `;
 
 const Cols = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-10) var(--space-16);
+  max-width: 820px;
 `;
 
 const Col = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-2);
 `;
 
-const ColTitle = styled.h3`
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
+const ColTitle = styled.h2`
+  margin-bottom: var(--space-2);
+  font-family: var(--font-small), sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: var(--space-2);
+  color: var(--table);
 `;
 
 const FootLink = styled(Link)`
-  display: inline-flex;
-  align-items: baseline;
-  gap: var(--space-2);
+  font-size: 1.0625rem;
+  color: var(--paper);
   text-decoration: none;
-  color: var(--ink);
-  font-family: var(--font-body), sans-serif;
-  font-size: 0.9375rem;
   padding: 2px 0;
-
-  &:hover {
-    box-shadow: inset 0 -2px 0 0 var(--accent);
-  }
+  &:hover { text-decoration: underline; }
+  &:focus-visible { outline-color: var(--paper); }
 `;
 
-const Idx = styled.span`
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-  color: var(--muted);
+const Note = styled.p`
+  max-width: 38ch;
+  font-size: 1rem;
+  color: rgb(251 250 245 / 0.78);
 `;
 
-const BottomRule = styled.div`
-  max-width: 1320px;
-  margin: var(--space-12) auto var(--space-3);
-  border-top: var(--rule-w) solid var(--ink);
+const ExtLink = styled.a`
+  color: var(--paper);
+  &:focus-visible { outline-color: var(--paper); }
 `;
 
-const Bottom = styled.div`
-  max-width: 1320px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-
-  @media ${QUERIES.mobile} {
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-`;
-
-const BottomLeft = styled.span``;
-
-const BottomRight = styled.span`
+const SourceLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  margin-top: var(--space-2);
+  color: var(--paper);
+  font-family: var(--font-small), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+  &:focus-visible { outline-color: var(--paper); }
 `;
 
-const Pulse = styled.span`
-  color: var(--accent-ink);
-  background: var(--accent);
-  width: 8px;
-  height: 8px;
-  display: inline-block;
-  animation: pulse 1600ms ease-in-out infinite;
-
-  @keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
+/* The house name at the scale of the room, cut off by the edge of the table. */
+const Signature = styled.p`
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(4rem, 15.5vw, 15rem);
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--table);
+  margin: var(--space-4) 0 -0.16em calc(var(--gutter) - 0.04em);
+  user-select: none;
 `;

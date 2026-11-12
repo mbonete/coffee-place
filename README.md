@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Coffee Place
 
-## Getting Started
+A fictional coffee shop whose menu is a numbered series of six sugar sachets, each printed in its own ink on a pistachio café table. Browse the series, tear a sachet open, stamp drinks into the cart and pay to a printed receipt.
 
-First, run the development server:
+**Live:** [the-coffee-place.vercel.app](https://the-coffee-place.vercel.app/)
+
+![The home page: six printed sachets scattered on a pistachio table](docs/home.webp)
+
+## What to try
+
+- **Stamp a sachet.** The red “Add” stamp on every sachet adds it to the cart. The cart count in the header flips over, and the “Collect the series” card below fills in.
+- **Tear one open.** Click any sachet. It morphs into its product page (React `ViewTransition`), the top seam tears off, and the drink's recipe pours into a halftone bar.
+- **Reload the page.** The cart is kept in `localStorage` and stays in sync across open tabs.
+- **Check out.** The receipt prints a line for every change. Paying stamps it PAID, and “Tear off, start over” tears it away. No card is charged; it is a demo.
+
+| Product page | Cart and receipt | Phone |
+| --- | --- | --- |
+| ![Cappuccino product page](docs/product.webp) | ![Receipt stamped PAID](docs/receipt.webp) | ![Home page on a phone](docs/mobile.webp) |
+
+## Design
+
+The visual world comes from Italian café sugar sachets, which bars print as collectible series.
+
+- **Paper and print.** Sachets have pinked (zig-zag) edges and heat-sealed seams, both drawn with CSS masks. Tones come only from print: solid spot inks and halftone dot screens, with no gradients or glass.
+- **One ink per drink.** Each product carries its own spot colour. Product photos are printed as duotones in that ink, and the black plate slides into register as you scroll (CSS scroll-driven animation).
+- **Red means action.** The house red appears only on things you can press to buy: the Add stamps, the cart and Pay.
+- **Type.** Bowlby One for the flexo-printed display lettering, Barlow Condensed for the small print, Barlow for reading, and Red Hat Mono only on the receipt.
+- **Motion.** Sachets land on the table in series order, the cart count flips, the receipt feeds lines and the paid stamp thunks down. With `prefers-reduced-motion` set, all of it is static.
+
+Design decisions are recorded in [`PRODUCT.md`](PRODUCT.md) and [`DESIGN.md`](DESIGN.md).
+
+## Stack
+
+- Next.js 16 (App Router, statically prerendered) and React 19
+- styled-components 6 with the SWC compiler transform
+- `ViewTransition` from React, enabled through `experimental.viewTransition`
+- Cart state in a small external store read with `useSyncExternalStore`, so the server and client render the same markup
+- Accessibility: keyboard-operable throughout, visible focus, a polite live region announces cart changes, and a skip link
+
+## Running locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Built by [Maria Bonete](https://github.com/mbonete). Photos are stock imagery; the shop, its menu and its prices are fictional.

@@ -1,13 +1,13 @@
-import Hero from './components/Hero';
-import FeaturedStrip from './components/FeaturedStrip';
-import Article from './components/Article';
+import Table from './components/Table';
+import HouseRules from './components/HouseRules';
+import CollectStrip from './components/CollectStrip';
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <FeaturedStrip />
-      <Article />
+      <Table />
+      <HouseRules />
+      <CollectStrip />
     </>
   );
 }

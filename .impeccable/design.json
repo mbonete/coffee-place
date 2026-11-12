@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T09:42:09+00:00",
+  "title": "Design System: The Coffee Place",
+  "extensions": {
+    "colorMeta": {
+      "table": {
+        "role": "neutral",
+        "displayName": "Pistachio Formica",
+        "canonical": "#B8D88A",
+        "tonalRamp": [
+          "#28321A",
+          "#445729",
+          "#607F34",
+          "#82B23E",
+          "#A1C66C",
+          "#BCD39D",
+          "#D8E3C9",
+          "#F3F5EF"
+        ]
+      },
+      "table-deep": {
+        "role": "neutral",
+        "displayName": "Formica Edge",
+        "canonical": "#A6CC74",
+        "tonalRamp": [
+          "#28311B",
+          "#43552A",
+          "#5E7C37",
+          "#7FAE42",
+          "#9FC36F",
+          "#BBD19F",
+          "#D8E2CA",
+          "#F3F5EF"
+        ]
+      },
+      "table-ink": {
+        "role": "neutral",
+        "displayName": "Table Ink",
+        "canonical": "#2F4A17",
+        "tonalRamp": [
+          "#26331A",
+          "#3E5827",
+          "#578032",
+          "#74B53B",
+          "#96C969",
+          "#B6D49B",
+          "#D5E4C9",
+          "#F2F6EF"
+        ]
+      },
+      "table-rule": {
+        "role": "neutral",
+        "displayName": "Table Rule",
+        "canonical": "#86AE53",
+        "tonalRamp": [
+          "#272F1E",
+          "#42502F",
+          "#5C743E",
+          "#7DA24E",
+          "#9DBA78",
+          "#BACBA4",
+          "#D7DFCD",
+          "#F3F5F0"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Sachet Paper",
+        "canonical": "#FBFAF5",
+        "tonalRamp": [
+          "#302D1C",
+          "#544D2C",
+          "#796F39",
+          "#AA9946",
+          "#C0B372",
+          "#CFC7A0",
+          "#E1DDCB",
+          "#F5F4EF"
+        ]
+      },
+      "paper-shade": {
+        "role": "neutral",
+        "displayName": "Seam Paper",
+        "canonical": "#EFEDE3",
+        "tonalRamp": [
+          "#2D2B20",
+          "#4C4833",
+          "#6E6745",
+          "#978D58",
+          "#B2AA80",
+          "#C6C1A9",
+          "#DDDBCF",
+          "#F4F3F0"
+        ]
+      },
+      "receipt": {
+        "role": "neutral",
+        "displayName": "Thermal Paper",
+        "canonical": "#FFFEF9",
+        "tonalRamp": [
+          "#3E360F",
+          "#6E5F12",
+          "#A48B0F",
+          "#ECC504",
+          "#F4D63E",
+          "#EEDC81",
+          "#F0E7BD",
+          "#F9F7EC"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "#14110F",
+        "tonalRamp": [
+          "#2A2623",
+          "#463E39",
+          "#64574F",
+          "#887567",
+          "#A6968C",
+          "#BFB6B0",
+          "#DAD5D3",
+          "#F3F2F1"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "#4B463F",
+        "tonalRamp": [
+          "#282724",
+          "#44403C",
+          "#605A53",
+          "#827A6E",
+          "#A19A91",
+          "#BCB8B3",
+          "#D8D7D4",
+          "#F3F2F2"
+        ]
+      },
+      "print-white": {
+        "role": "neutral",
+        "displayName": "Print White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#404040",
+          "#595959",
+          "#787878",
+          "#999999",
+          "#B8B8B8",
+          "#D6D6D6",
+          "#F2F2F2"
+        ]
+      },
+      "house": {
+        "role": "primary",
+        "displayName": "House Red",
+        "canonical": "#D7262E",
+        "tonalRamp": [
+          "#371617",
+          "#601F22",
+          "#8D252A",
+          "#C9272E",
+          "#D9595F",
+          "#DD9295",
+          "#E8C4C6",
+          "#F7EEEE"
+        ]
+      },
+      "house-deep": {
+        "role": "primary",
+        "displayName": "House Red Deep",
+        "canonical": "#A8161D",
+        "tonalRamp": [
+          "#381416",
+          "#631C20",
+          "#932025",
+          "#D11F27",
+          "#DF535A",
+          "#E18E92",
+          "#EAC3C4",
+          "#F7EDEE"
+        ]
+      },
+      "spot-oxblood": {
+        "role": "secondary",
+        "displayName": "Oxblood (N° 1 Espresso)",
+        "canonical": "#7A1E2C",
+        "tonalRamp": [
+          "#34181C",
+          "#5C242C",
+          "#862C3A",
+          "#BE3247",
+          "#D06273",
+          "#D897A1",
+          "#E6C7CB",
+          "#F6EEF0"
+        ]
+      },
+      "spot-cobalt": {
+        "role": "secondary",
+        "displayName": "Cobalt (N° 2 Americano)",
+        "canonical": "#2346C8",
+        "tonalRamp": [
+          "#161D37",
+          "#1F2D60",
+          "#253B8E",
+          "#2649C9",
+          "#5974D9",
+          "#92A2DE",
+          "#C4CCE8",
+          "#EEF0F7"
+        ]
+      },
+      "spot-rose": {
+        "role": "secondary",
+        "displayName": "Dusty Rose (N° 3 Cappuccino)",
+        "canonical": "#B5577A",
+        "tonalRamp": [
+          "#2F1D24",
+          "#522E3B",
+          "#763C52",
+          "#A54B6C",
+          "#BC7690",
+          "#CDA3B2",
+          "#E0CCD4",
+          "#F5F0F2"
+        ]
+      },
+      "spot-sky": {
+        "role": "secondary",
+        "displayName": "Sky (N° 4 Iced Latte)",
+        "canonical": "#3A86BD",
+        "tonalRamp": [
+          "#1A2833",
+          "#274458",
+          "#326081",
+          "#3A82B5",
+          "#69A1C9",
+          "#9BBCD4",
+          "#C9D8E4",
+          "#EFF3F6"
+        ]
+      },
+      "spot-amber": {
+        "role": "secondary",
+        "displayName": "Burnt Amber (N° 5 Caramel Macchiato)",
+        "canonical": "#C9630F",
+        "tonalRamp": [
+          "#3B2412",
+          "#683C18",
+          "#995319",
+          "#DC6E14",
+          "#E7914B",
+          "#E6B389",
+          "#ECD4C0",
+          "#F8F2ED"
+        ]
+      },
+      "spot-bottle": {
+        "role": "secondary",
+        "displayName": "Bottle Green (N° 6 Filter Coffee)",
+        "canonical": "#24382B",
+        "tonalRamp": [
+          "#212B25",
+          "#364A3D",
+          "#496954",
+          "#5F9170",
+          "#85AD93",
+          "#ACC3B4",
+          "#D1DCD5",
+          "#F1F4F2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Flexo Display",
+        "purpose": "Page titles (menu, product, cart); the cropped footer signature runs larger."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Section headings on the table and editorial sheets."
+      },
+      "title": {
+        "displayName": "Block Title",
+        "purpose": "Block headings, rule titles, cart line names, prices."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Opening paragraph under a headline, max 34ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text, 46-62ch, tabular numerals."
+      },
+      "label": {
+        "displayName": "Control Label",
+        "purpose": "Nav, buttons, stamps, back and onward links; uppercase."
+      },
+      "small-print": {
+        "displayName": "Small Print",
+        "purpose": "N° x/6, volumes, specs, ingredients, footer column titles; uppercase."
+      },
+      "receipt": {
+        "displayName": "Receipt Printer",
+        "purpose": "The order ticket only; uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sachet",
+        "value": "drop-shadow(0 1px 0 rgb(47 74 23 / 0.35)) drop-shadow(0 12px 14px rgb(47 74 23 / 0.32))",
+        "purpose": "Paper at rest on the table (applied as filter so it follows pinked edges)."
+      },
+      {
+        "name": "sachet-lift",
+        "value": "drop-shadow(0 1px 0 rgb(47 74 23 / 0.35)) drop-shadow(0 22px 22px rgb(47 74 23 / 0.36))",
+        "purpose": "Hover and focus-within lift on table sachets."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default for lifts, landings, underline draws, view transitions."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Receipt tear-off."
+      },
+      {
+        "name": "motion-fast",
+        "value": "140ms",
+        "purpose": "Colour swaps on buttons, stamps, steppers."
+      },
+      {
+        "name": "motion",
+        "value": "220ms",
+        "purpose": "Underline draws and arrow nudges."
+      },
+      {
+        "name": "sachet-land",
+        "value": "680ms ease-out, 120ms + index * 95ms stagger",
+        "purpose": "Sachets land in series order on first load."
+      },
+      {
+        "name": "view-transition",
+        "value": "420ms ease-out",
+        "purpose": "Sachet morph from list to product page."
+      },
+      {
+        "name": "stamp-thunk",
+        "value": "360ms ease-out",
+        "purpose": "Add stamp press feedback."
+      },
+      {
+        "name": "receipt-print",
+        "value": "360ms steps(6, end)",
+        "purpose": "Each cart change prints a receipt line."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "600px"
+      },
+      {
+        "name": "tablet",
+        "value": "1024px"
+      },
+      {
+        "name": "desktop",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Action Button",
+      "kind": "button",
+      "refersTo": "button-action",
+      "description": "House-red button for buying only (Pay).",
+      "html": "<button class=\"ds-btn ds-btn-action\">Pay $4.93</button>",
+      "css": ":root{--table:#B8D88A;--paper:#FBFAF5;--paper-shade:#EFEDE3;--receipt:#FFFEF9;--ink:#14110F;--ink-soft:#4B463F;--house:#D7262E;--house-deep:#A8161D;--table-ink:#2F4A17}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border:2.5px solid;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:1.125rem;cursor:pointer;transition:background-color 140ms ease,color 140ms ease,border-color 140ms ease}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid #14110F;outline-offset:3px}.ds-btn-action{background:#D7262E;color:#fff;border-color:#D7262E}.ds-btn-action:hover{background:#A8161D;border-color:#A8161D}"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Press-black default for every non-buying button.",
+      "html": "<button class=\"ds-btn ds-btn-ink\">See the series</button>",
+      "css": ":root{--table:#B8D88A;--paper:#FBFAF5;--paper-shade:#EFEDE3;--receipt:#FFFEF9;--ink:#14110F;--ink-soft:#4B463F;--house:#D7262E;--house-deep:#A8161D;--table-ink:#2F4A17}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border:2.5px solid;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:1.125rem;cursor:pointer;transition:background-color 140ms ease,color 140ms ease,border-color 140ms ease}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid #14110F;outline-offset:3px}.ds-btn-ink{background:#14110F;color:#FBFAF5;border-color:#14110F}.ds-btn-ink:hover{background:#FBFAF5;color:#14110F}"
+    },
+    {
+      "name": "Paper Button",
+      "kind": "button",
+      "refersTo": "button-paper",
+      "description": "Paper button with an ink border; inverts on hover.",
+      "html": "<button class=\"ds-btn ds-btn-paper\">Keep browsing</button>",
+      "css": ":root{--table:#B8D88A;--paper:#FBFAF5;--paper-shade:#EFEDE3;--receipt:#FFFEF9;--ink:#14110F;--ink-soft:#4B463F;--house:#D7262E;--house-deep:#A8161D;--table-ink:#2F4A17}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 22px;border:2.5px solid;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:1.125rem;cursor:pointer;transition:background-color 140ms ease,color 140ms ease,border-color 140ms ease}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid #14110F;outline-offset:3px}.ds-btn-paper{background:#FBFAF5;color:#14110F;border-color:#14110F}.ds-btn-paper:hover{background:#14110F;color:#FBFAF5}"
+    },
+    {
+      "name": "Add Stamp",
+      "kind": "button",
+      "refersTo": "add-stamp",
+      "description": "Tilted rubber stamp in house red that adds a drink to the cart; fills red once in the cart.",
+      "html": "<div style=\"display:flex;gap:24px;padding:16px;background:#B8D88A\"><button class=\"ds-stamp\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" aria-hidden=\"true\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg><span>Add</span></button><button class=\"ds-stamp ds-stamp-in\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" aria-hidden=\"true\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg><span>Add</span><span class=\"ds-stamp-count\">2</span></button></div>",
+      "css": ".ds-stamp{position:relative;display:inline-flex;align-items:center;gap:4px;min-height:36px;padding:4px 12px 4px 9px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:1rem;color:#D7262E;background:#FBFAF5;border:3px solid #D7262E;border-radius:3px;transform:rotate(-7deg);cursor:pointer;transition:background-color 140ms ease,color 140ms ease}.ds-stamp:hover{background:#D7262E;color:#fff}.ds-stamp:active{transform:rotate(-7deg) scale(0.96)}.ds-stamp:focus-visible{outline:3px solid #14110F;outline-offset:3px}.ds-stamp-in{background:#D7262E;color:#fff}.ds-stamp-in:hover{background:#A8161D;border-color:#A8161D}.ds-stamp-count{display:inline-grid;place-items:center;min-width:1.45em;height:1.45em;margin-left:2px;padding:0 4px;border-radius:999px;background:#fff;color:#D7262E;font-family:'Bowlby One',sans-serif;font-size:0.8125em;letter-spacing:0;line-height:1}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-cart",
+      "description": "Sticky table header: Bowlby wordmark, dashed-underline links, house-red Cart with flip count.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">The Coffee Place</a><nav class=\"ds-nav-links\"><a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Menu</a><a class=\"ds-nav-link\" href=\"#\">About</a><a class=\"ds-nav-cart\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4.5v2\"/><path d=\"M6 9.5c0-1.9 2.7-3 6-3s6 1.1 6 3\"/><path d=\"M3.5 9.5h17\"/><path d=\"M4.5 9.5c.4 5 3.4 8.5 7.5 8.5s7.1-3.5 7.5-8.5\"/><path d=\"M8.5 20.5h7\"/></svg><span>Cart</span><span class=\"ds-nav-count\">02</span></a></nav></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 24px;background:#B8D88A;border-bottom:2px solid #86AE53}.ds-nav-brand{font-family:'Bowlby One',sans-serif;font-size:1.5rem;line-height:1;color:#14110F;text-decoration:none}.ds-nav-links{display:flex;align-items:center;gap:32px}.ds-nav-link{position:relative;padding:8px 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:1.0625rem;color:#14110F;text-decoration:none}.ds-nav-link::after{content:'';position:absolute;left:0;right:0;bottom:2px;border-top:2px dashed #14110F;transform:scaleX(0);transform-origin:left;transition:transform 220ms cubic-bezier(0.16,1,0.3,1)}.ds-nav-link:hover::after,.ds-nav-link[aria-current='page']::after{transform:scaleX(1)}.ds-nav-link:focus-visible,.ds-nav-cart:focus-visible{outline:3px solid #14110F;outline-offset:3px}.ds-nav-cart{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 8px 0 12px;background:#D7262E;color:#fff;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-size:1.0625rem;text-decoration:none;transition:background-color 140ms ease}.ds-nav-cart:hover{background:#A8161D}.ds-nav-count{display:inline-grid;place-items:center;min-width:2.2em;height:30px;background:#FBFAF5;color:#14110F;border-radius:2px;font-family:'Bowlby One',sans-serif;font-size:0.9375rem}"
+    },
+    {
+      "name": "Quantity Stepper",
+      "kind": "input",
+      "refersTo": "quantity-stepper",
+      "description": "Paper strip with ink border, 40px steppers and a Bowlby count.",
+      "html": "<div class=\"ds-step\" role=\"group\" aria-label=\"Quantity\"><button class=\"ds-step-btn\" aria-label=\"One less\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.75\" stroke-linecap=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></button><span class=\"ds-step-count\">02</span><button class=\"ds-step-btn\" aria-label=\"One more\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.75\" stroke-linecap=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></button></div>",
+      "css": ".ds-step{display:inline-flex;align-items:stretch;background:#FBFAF5;border:2px solid #14110F;border-radius:3px}.ds-step-btn{display:grid;place-items:center;width:40px;height:40px;padding:0;background:transparent;border:none;color:#14110F;cursor:pointer;transition:background-color 140ms ease,color 140ms ease}.ds-step-btn:hover{background:#14110F;color:#FBFAF5}.ds-step-btn:focus-visible{outline:3px solid #14110F;outline-offset:2px}.ds-step-count{display:grid;place-items:center;min-width:40px;border-inline:2px solid #14110F;font-family:'Bowlby One',sans-serif;font-size:1rem}"
+    },
+    {
+      "name": "Sachet",
+      "kind": "card",
+      "refersTo": "sachet",
+      "description": "Signature content object: pinked paper, crimped seams, halftone spot-ink panel, small print, tear line, inked price.",
+      "html": "<div class=\"ds-table\"><article class=\"ds-sachet\" style=\"--spot:#2346C8\"><div class=\"ds-seam\"></div><div class=\"ds-ink\"><h3 class=\"ds-name\">Americano</h3></div><p class=\"ds-small\"><span>N° 2/6</span><span>240 ml</span></p><div class=\"ds-tear\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6\" r=\"3\"/><circle cx=\"6\" cy=\"18\" r=\"3\"/><line x1=\"20\" y1=\"4\" x2=\"8.12\" y2=\"15.88\"/><line x1=\"14.47\" y1=\"14.48\" x2=\"20\" y2=\"20\"/><line x1=\"8.12\" y1=\"8.12\" x2=\"12\" y2=\"12\"/></svg><span>Tear here</span></div><p class=\"ds-price\"><span class=\"ds-cur\">$</span>2.25</p><div class=\"ds-seam ds-seam-b\"></div></article></div>",
+      "css": ".ds-table{padding:32px;background:#B8D88A}.ds-sachet-wrap{}.ds-sachet{width:220px;aspect-ratio:5/7.2;display:flex;flex-direction:column;container-type:inline-size;background:#FBFAF5;color:#14110F;transform:rotate(-3deg);filter:drop-shadow(0 1px 0 rgb(47 74 23/0.35)) drop-shadow(0 12px 14px rgb(47 74 23/0.32));transition:transform 320ms cubic-bezier(0.16,1,0.3,1),filter 320ms cubic-bezier(0.16,1,0.3,1);-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/10px 100%,conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50%/10px 100%;-webkit-mask-composite:source-in;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/10px 100%,conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) 50%/10px 100%;mask-composite:intersect;}.ds-sachet:hover{transform:translateY(-6px) rotate(-1.2deg);filter:drop-shadow(0 1px 0 rgb(47 74 23/0.35)) drop-shadow(0 22px 22px rgb(47 74 23/0.36))}.ds-seam{flex:none;height:7cqw;min-height:10px;background-color:#EFEDE3;background-image:repeating-linear-gradient(90deg,rgb(20 17 15/0.08) 0 1px,transparent 1px 3px);}.ds-seam-b{margin-top:auto}.ds-ink{display:flex;align-items:flex-end;height:42%;margin:6cqw 6cqw 0;padding:6cqw 6cqw 5cqw;background-color:var(--spot);background-image:radial-gradient(rgb(255 255 255/0.16) 1.1px,transparent 1.4px);background-size:6px 6px;overflow:hidden}.ds-name{margin:0;font-family:'Bowlby One',sans-serif;font-weight:400;font-size:11cqw;line-height:0.92;color:#fff}.ds-small{display:flex;justify-content:space-between;margin:4cqw 6cqw 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(11px,5.4cqw,17px);letter-spacing:0.05em;text-transform:uppercase}.ds-tear{display:flex;align-items:center;gap:1.5cqw;margin-top:3.5cqw;padding-left:6cqw;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:clamp(9px,3.8cqw,13px);letter-spacing:0.12em;text-transform:uppercase;color:#4B463F}.ds-tear::after{content:'';flex:1;border-top:1.5px dashed rgb(20 17 15/0.45)}.ds-price{display:flex;align-items:flex-start;margin:auto 6cqw 4cqw;padding-top:3cqw;font-family:'Bowlby One',sans-serif;font-size:13cqw;line-height:1;color:var(--spot)}.ds-cur{font-size:0.5em;margin:0.12em 0.06em 0 0}"
+    },
+    {
+      "name": "Receipt",
+      "kind": "custom",
+      "refersTo": "receipt",
+      "description": "Thermal order ticket in Red Hat Mono with dashed rules, dotted leaders and a press-black PAID stamp.",
+      "html": "<div class=\"ds-table\"><section class=\"ds-receipt\"><header class=\"ds-r-head\"><h2 class=\"ds-r-shop\">The Coffee Place</h2><p class=\"ds-r-sub\">Order ticket</p></header><hr class=\"ds-r-rule\"><p class=\"ds-r-row\"><span>1 × Espresso</span><span class=\"ds-r-lead\"></span><span>1.25</span></p><p class=\"ds-r-row\"><span>1 × Iced Latte</span><span class=\"ds-r-lead\"></span><span>2.85</span></p><hr class=\"ds-r-rule\"><p class=\"ds-r-total\"><span>Total</span><span class=\"ds-r-big\">$4.93</span></p><span class=\"ds-r-paid\">Paid</span></section></div>",
+      "css": ".ds-table{padding:32px;background:#B8D88A}.ds-receipt{max-width:360px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding:32px 24px 40px;background:#FFFEF9;color:#14110F;font-family:'Red Hat Mono',monospace;font-size:0.9375rem;line-height:1.4;text-transform:uppercase;filter:drop-shadow(0 1px 0 rgb(47 74 23/0.35)) drop-shadow(0 12px 14px rgb(47 74 23/0.32));-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/12px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50%/12px 100%;}.ds-r-head{text-align:center}.ds-r-shop{margin:0;font-family:'Red Hat Mono',monospace;font-weight:600;font-size:1.25rem;letter-spacing:0.08em}.ds-r-sub{margin:0;letter-spacing:0.06em;color:#4B463F}.ds-r-rule{width:100%;border:0;border-top:2px dashed rgb(20 17 15/0.55)}.ds-r-row{display:grid;grid-template-columns:auto minmax(12px,1fr) auto;align-items:baseline;gap:8px;margin:0}.ds-r-lead{border-bottom:2px dotted rgb(20 17 15/0.4);transform:translateY(-4px)}.ds-r-total{display:flex;justify-content:space-between;align-items:baseline;margin:0;font-weight:600;letter-spacing:0.06em}.ds-r-big{font-size:2rem;letter-spacing:0}.ds-r-paid{align-self:center;padding:2px 14px;border:5px solid #14110F;border-radius:4px;font-family:'Bowlby One',sans-serif;font-size:3.25rem;line-height:1;transform:rotate(-14deg);mix-blend-mode:multiply}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sachet Series",
+    "overview": "Every surface is printed matter lying on a café table. The ground is pistachio Formica with a fine printed fleck; on it sit glossy white sugar sachets with crimped heat-seal seams, pinked edges, a dashed tear line and condensed small print, each carrying one drink's spot ink. The order is a strip of thermal receipt paper. Nothing is a card, a panel or a glass sheet: if it holds content, it is a piece of paper with a believable edge.\n\nThe look is flexographic packaging print: heavy, slightly crude display lettering, flat spot colours, halftone screens, duotone photographs printed in two plates. Objects are scattered with small rotations, as if dropped, and the house name runs at a scale the frame has to crop. Density is low on the table and high on the paper, where small print, numbers and rules pack in the way they do on real packaging.\n\nColour is disciplined by job. The table and paper are the room; near-black ink does all the talking; one spot ink belongs to each drink; and house red is the only colour you can press to buy.",
+    "keyCharacteristics": [
+      "Pistachio Formica ground on every page, never white.",
+      "Content lives on paper objects (sachets, sheets, receipt) with pinked edges and crimped seams.",
+      "One spot ink per drink, carried through its sachet, price, duotone photo and detail page.",
+      "House red appears only on buying controls.",
+      "Tone comes from print: solid inks, halftone dot screens, duotone plates.",
+      "Bowlby One flexo display, Barlow Condensed small print, Barlow body, Red Hat Mono on the receipt only."
+    ],
+    "rules": [
+      {
+        "name": "The Red Means Buy Rule",
+        "body": "House red is reserved for buying actions: Add stamps, the Cart link, Pay. Confirmations, headings, errors and decoration never use it; the PAID stamp is deliberately press black.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Ink Per Drink Rule",
+        "body": "A drink's spot ink is its identity. Anything about that drink (sachet, price, photo, composition bar, detail page) prints in that ink and no other.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tone From Print Rule",
+        "body": "Tone comes only from print: solid spot inks, halftone radial-dot screens, and two-plate duotones. Gradient functions appear only as dot screens, the Formica fleck, crimp ridges and pinked-edge masks, never as a smooth colour ramp.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lettering Is Printed Rule",
+        "body": "Display type is Bowlby One at weight 400 with tight leading (0.8–0.95). Inside a sachet it scales with the paper in container units, and the lead sachet's name may run off its own seam.",
+        "section": "typography"
+      },
+      {
+        "name": "The Receipt Printer Rule",
+        "body": "Red Hat Mono appears only on the receipt.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper On A Table Rule",
+        "body": "Only paper casts a shadow, and it is cast onto the table in table-ink green. Controls are printed or stamped, so they stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put every page on the pistachio table with its printed fleck, and put content on paper with pinked edges.",
+      "**Do** give each drink its own spot ink and carry it through sachet, price, photo and detail page.",
+      "**Do** use house red only for Add, Cart and Pay; make confirmations, including the PAID stamp, in press black.",
+      "**Do** build tone from halftone dot screens and duotone plates, and print photographs as duotones in the drink's ink.",
+      "**Do** set controls in Barlow Condensed 700 capitals with 0.08em tracking and a 3px corner.",
+      "**Do** cast shadows only from paper, in table-ink green, via drop-shadow so they follow the pinked edge.",
+      "**Do** keep every motion static under prefers-reduced-motion."
+    ],
+    "donts": [
+      "**Don't** use house red for headings, links, errors, badges or decoration.",
+      "**Don't** use smooth gradients for tone, or glass, blur or backdrop-filter anywhere.",
+      "**Don't** put content on rounded white cards; use a sachet, a sheet or the receipt.",
+      "**Don't** use grey or offset hard shadows, or shadows on buttons and stamps.",
+      "**Don't** use Red Hat Mono outside the receipt, or set Bowlby One in any weight but 400.",
+      "**Don't** mix two drinks' inks on one drink's surface."
+    ]
+  }
+}

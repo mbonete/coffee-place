@@ -1,102 +1,92 @@
 'use client';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import products from '../products';
+import { cartStore } from '../lib/cartStore';
 
-const CartContext = React.createContext({});
+const CartContext = React.createContext(null);
 
-export const SERVICE_COST = '2';
-export const TAX_COST = '0.99';
-export const TOTAL_FEES = parseFloat(Number(SERVICE_COST) + Number(TAX_COST)).toFixed(2);
+export const SERVICE_COST = 0.5; // table service, per order
+export const TAX_RATE = 0.08;
+
+const round2 = (n) => Math.round(n * 100) / 100;
+
+export const formatPrice = (value) => Number(value).toFixed(2);
+
+const noopSubscribe = () => () => {};
+
+/** False during server render and hydration, true once the client has taken over. */
+export function useHydrated() {
+  return useSyncExternalStore(noopSubscribe, () => true, () => false);
+}
 
 export const CartProvider = ({ children }) => {
-  const [cartLines, setCartLines] = useState({});
+  const cartLines = useSyncExternalStore(
+    cartStore.subscribe,
+    cartStore.getSnapshot,
+    cartStore.getServerSnapshot,
+  );
+  const hydrated = useHydrated();
+  const [announcement, setAnnouncement] = useState('');
+  const announceCount = useRef(0);
 
-  const addToShoppingCart = useCallback((productId) => {
-    setCartLines((prev) => ({ ...prev, [productId]: (prev[productId] ?? 0) + 1 }));
+  const announce = useCallback((message) => {
+    announceCount.current += 1;
+    // Alternate a zero-width space so a repeated message is still announced.
+    setAnnouncement(message + (announceCount.current % 2 ? '' : '​'));
   }, []);
 
-  const removeFromShoppingCart = useCallback((productId) => {
-    setCartLines((prev) => {
-      const next = { ...prev };
-      delete next[productId];
-      return next;
-    });
-  }, []);
+  const setQuantity = useCallback(
+    (productId, quantity) => {
+      const next = Math.max(0, Math.min(quantity, 99));
+      cartStore.update((prev) => {
+        const lines = { ...prev };
+        if (next === 0) delete lines[productId];
+        else lines[productId] = next;
+        return lines;
+      });
+      const name = products[productId]?.name ?? 'Item';
+      announce(next === 0 ? `${name} removed from cart.` : `${name}: ${next} in cart.`);
+    },
+    [announce],
+  );
 
-  const incrementQuantity = useCallback((productId) => {
-    setCartLines((prev) => ({ ...prev, [productId]: (prev[productId] ?? 0) + 1 }));
-  }, []);
+  const increment = useCallback(
+    (productId) => setQuantity(productId, (cartStore.getSnapshot()[productId] ?? 0) + 1),
+    [setQuantity],
+  );
+  const decrement = useCallback(
+    (productId) => setQuantity(productId, (cartStore.getSnapshot()[productId] ?? 0) - 1),
+    [setQuantity],
+  );
+  const remove = useCallback((productId) => setQuantity(productId, 0), [setQuantity]);
+  const reset = useCallback(() => cartStore.update(() => ({})), []);
 
-  const decrementQuantity = useCallback((productId) => {
-    setCartLines((prev) => {
-      const current = prev[productId] ?? 0;
-      if (current <= 1) {
-        const next = { ...prev };
-        delete next[productId];
-        return next;
-      }
-      return { ...prev, [productId]: current - 1 };
-    });
-  }, []);
-
-  const changeQuantity = useCallback((productId, quantity) => {
-    setCartLines((prev) => {
-      if (quantity <= 0) {
-        const next = { ...prev };
-        delete next[productId];
-        return next;
-      }
-      return { ...prev, [productId]: quantity };
-    });
-  }, []);
-
-  const reset = useCallback(() => setCartLines({}), []);
-
-  const { subtotal, total, cartCount } = useMemo(() => {
-    const count = Object.values(cartLines).reduce((acc, q) => acc + q, 0);
-    const sub = Object.keys(cartLines).reduce(
-      (acc, productId) => acc + Number(products[productId].price) * cartLines[productId],
-      0,
-    );
-    if (sub === 0) {
-      return { subtotal: '0', total: '0', cartCount: count };
-    }
-    const tot = sub + Number(SERVICE_COST) + Number(TAX_COST);
-    return {
-      subtotal: parseFloat(sub).toFixed(2),
-      total: parseFloat(tot).toFixed(2),
-      cartCount: count,
-    };
+  const totals = useMemo(() => {
+    const ids = Object.keys(cartLines);
+    const count = ids.reduce((acc, id) => acc + cartLines[id], 0);
+    const subtotal = ids.reduce((acc, id) => acc + Number(products[id].price) * cartLines[id], 0);
+    const service = count > 0 ? SERVICE_COST : 0;
+    const tax = round2(subtotal * TAX_RATE);
+    return { cartCount: count, subtotal, service, tax, total: round2(subtotal + service + tax) };
   }, [cartLines]);
 
   const value = useMemo(
-    () => ({
-      addToShoppingCart,
-      removeFromShoppingCart,
-      incrementQuantity,
-      decrementQuantity,
-      changeQuantity,
-      reset,
-      cartLines,
-      cartCount,
-      total,
-      subtotal,
-    }),
-    [
-      addToShoppingCart,
-      removeFromShoppingCart,
-      incrementQuantity,
-      decrementQuantity,
-      changeQuantity,
-      reset,
-      cartLines,
-      cartCount,
-      total,
-      subtotal,
-    ],
+    () => ({ cartLines, hydrated, increment, decrement, remove, setQuantity, reset, ...totals }),
+    [cartLines, hydrated, increment, decrement, remove, setQuantity, reset, totals],
   );
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={value}>
+      {children}
+      <div className="sr-only" role="status" aria-live="polite">
+        {announcement}
+      </div>
+    </CartContext.Provider>
+  );
 };
 
-export const useCart = () => React.useContext(CartContext);
+export const useCart = () => {
+  const ctx = React.useContext(CartContext);
+  if (!ctx) throw new Error('useCart must be used inside <CartProvider>');
+  return ctx;
+};

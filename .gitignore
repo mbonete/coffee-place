@@ -36,3 +36,8 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Impeccable scratch (decision rounds, review captures)
+.impeccable/decision/
+.impeccable/mocks/
+.impeccable/review/
